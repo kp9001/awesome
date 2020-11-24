@@ -20,11 +20,11 @@ case $1 in
 	"--keepass")
 		options+="keepass"
 		;;
-	"--stop")
-		options+="stop"
-		;;
 	"--poweroff")
 		options+="poweroff"
+		;;
+	"--stop")
+		options+="stop"
 		;;
 esac
 
@@ -36,6 +36,10 @@ echo "$options"
 [ $options = "discord" ] && discord
 [ $options = "element" ] && element-desktop
 [ $options = "keepass" ] && keepassxc
-[ $options = "stop" ] && python3 ~/documents/scripts/miscellaneous/stop.py
 [ $options = "poweroff" ] && systemctl poweroff
+
+## This is some nonsense I wrote. It's not important at all. 
+## But if you want to use it, it is included and will run if you install python3 and pynput 
+##(or just python and rewrite the command).
+[ $options = "stop" ] && python3 ~/.config/awesome/scripts/stop.py 
 
