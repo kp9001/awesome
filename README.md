@@ -1,8 +1,59 @@
 # Awesome WM
 
-My personal configuration of the awesome window manager. Comments added to rc.lua should roughly explain changes to the default configuration. 
+My personal configuration of the awesome window manager. The original can be found [here](https://github.com/awesomeWM/awesome). Comments added to rc.lua should roughly explain changes to the default configuration. 
 
-## Basic installation
+## Basic Keybinds
+
+### System
+
+- `alt+s` -- toggle list of keybinds
+- `alt+w` -- launch menu
+- `alt+space` -- launch run prompt
+- `alt+ctrl+space` -- launch application menu
+- `alt+b` -- toggle menu bar
+- `alt+ctrl+r` -- reload awesome
+- `alt+ctrl+delete` -- quit awesome
+- `alt+ctrl+shift+delete` -- power off computer
+
+### Launch
+
+Disclaimer: may require changing default terminal in `rc.lua` and most likely will require editing launch commands in `scripts/launcher.sh`.
+
+- `alt+ctrl+enter` -- spawn a terminal
+- `alt+ctrl+w` -- launch firefox
+- `alt+ctrl+shift+w` -- launch tor
+- `alt+ctrl+a` -- launch keepass
+- `alt+ctrl+s` -- launch signal
+- `alt+ctrl+d` -- launch discord
+- `alt+ctrl+e` -- launch element
+
+### Layout
+
+- `alt+ctrl+shift+h/j/k/l/i` -- switch to layout with master on left/bottom/top/right/top-left
+- `alt+ctrl+shift+f` -- toggle floating on focused client
+- `alt+ctrl+j/k` -- switch focus to next client down/up the stack
+- `alt+shift+j/k` -- move clients down/up the stack
+- `alt+ctrl+h/l` -- switch focus to screen (monitor) on the left/right
+- `alt+shift+h/l` -- move client to screen on the left/right
+- `alt+shift+enter` -- move client to master
+- `alt+shift+.` -- increase number of masters by 1
+- `alt+shift+,` -- decrease number of masters by 1
+- `alt+h/l` -- resize clients horizontally
+- `alt+f` -- toggle fullscreen on focused client
+- `alt+m` -- toggle maximize on focused client 
+- `alt+shift+m` -- toggle horizontal maximize on focused client 
+- `alt+ctrl+m` -- toggle vertical maximize on focused client 
+- `alt+shift+down` -- minimize client
+- `alt+shift+up` -- un-minimize client
+- `alt+number` -- switch focus to tag (workspace) number
+- `alt+shift+number` -- move client to tag number
+- `alt+ctrl+number` -- toggle view tag number on current tag
+
+### Volume
+
+Volume up/down keys perform their normal function. This can be changed to any keys in `rc.lua`. Search for "volume controls".
+
+## Installation
 
 Disclaimer: This was set up on Debian 10, so it is conceivable that it will not work on all distros in this exact form. 
 
