@@ -12,7 +12,7 @@ local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
 -- Widgets
 local volumebar_widget = require("volumebar")
-local net_widgets = require("net_widgets") --not yet working
+--local net_widgets = require("net_widgets") --not yet working
 
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
@@ -231,7 +231,7 @@ awful.screen.connect_for_each_screen(function(s)
 		}),
             --mykeyboardlayout,
             --wibox.widget.systray(),
-	    net_wired = net_widgets.indicator({interface="enp2s0"}), -- not working :'(
+	    --net_wired = net_widgets.indicator({interface="enp2s0"}), -- not working :'(
             mytextclock,
             s.mylayoutbox,
         },
