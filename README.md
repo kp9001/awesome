@@ -2,7 +2,7 @@
 
 My personal configuration of the awesome window manager. The original can be found [here](https://github.com/awesomeWM/awesome). Comments added to rc.lua should roughly explain changes to the default configuration. 
 
-## Basic Keybinds
+## Keybinds
 
 ### System
 
