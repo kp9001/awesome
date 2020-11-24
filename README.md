@@ -24,7 +24,7 @@ cd ~/.config/awesome/scripts
 sudo ./wallpaper.sh /path/to/wallpaper
 ```
 
-Before you load it, you might want to modify or completely remove the `xrandr` command in the autorun list. This was a hacy fix for a weird display situation. 
+Before you load it, you might want to modify or completely remove the `xrandr` command in the autorun list. This was a hacky fix for a weird display situation. 
 
 Log off, switch your desktop environment to awesome, and log back in. If all went well, it should load awesome with this configuration without errors, and with your wallpaper. If you wish to make any changes, open up `rc.lua` in your favorite editor and have fun. Press `alt+ctrl+r` to reload awesome (unless you modified this already). 
 
