@@ -374,9 +374,9 @@ globalkeys = gears.table.join(
               {description = "decrease master width factor", group = "layout"}),
 
     -- Modifying stack
-    awful.key({ modkey, "Shift"   }, "h",     function () awful.tag.incnmaster( 1, nil, true) end,
+    awful.key({ modkey, "Shift"   }, ".",     function () awful.tag.incnmaster( 1, nil, true) end,
               {description = "increase the number of master clients", group = "layout"}),
-    awful.key({ modkey, "Shift"   }, "l",     function () awful.tag.incnmaster(-1, nil, true) end,
+    awful.key({ modkey, "Shift"   }, ",",     function () awful.tag.incnmaster(-1, nil, true) end,
               {description = "decrease the number of master clients", group = "layout"}),
 
     -- Moving clients across screens (monitors)
@@ -441,10 +441,11 @@ clientkeys = gears.table.join(
               {description = "move to master", group = "client"}),
 
     -- Move client to another screen (monitor)
-    awful.key({ modkey, "Shift" }, ".",      function (c) c:move_to_screen() end,
-              {description = "move to screen", group = "client"}),
-    awful.key({ modkey, "Shift" }, ",",      function (c) c:move_to_screen() end,
-              {description = "move to screen", group = "client"}),
+    -- If your screens are more intelligently numbered than mine, you will probably want to swap these
+    awful.key({ modkey, "Shift" }, "l",      function (c) c:move_to_screen(1) end,
+              {description = "move to screen 1 (right)", group = "client"}),
+    awful.key({ modkey, "Shift" }, "h",      function (c) c:move_to_screen(2) end,
+              {description = "move to screen 2 (left)", group = "client"}),
 
     -- For when you really need to see something
     awful.key({ modkey }, "t",      function (c) c.ontop = not c.ontop end,
