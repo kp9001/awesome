@@ -71,7 +71,11 @@ git clone https://github.com/kp9001/awesome.git
 cd awesome
 ```
 
-Look at the contents of the requirements script. These are all packages which must be installed to take full advantage of the custom configuration (such as screenshots, for example).
+In order to take full advantage of the custom configuration (for instance, screenshots), you will need to make sure a few dependencies are installed:
+
+```
+sudo apt install feh maim xclip xdotool
+```
 
 If you wish to set a custom wallpaper, find the path of an image file you wish to use. Enter the scripts directory and run the wallpaper script with the absolute path to the desired image as an argument
 
