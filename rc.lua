@@ -446,6 +446,8 @@ clientkeys = gears.table.join(
               {description = "move to screen 1 (right)", group = "client"}),
     awful.key({ modkey, "Shift" }, "h",      function (c) c:move_to_screen(2) end,
               {description = "move to screen 2 (left)", group = "client"}),
+    --awful.key({ modkey }, "o",      function (c) c:move_to_screen() end,
+    --          {description = "move to other screen", group = "client"}),
 
     -- For when you really need to see something
     awful.key({ modkey }, "t",      function (c) c.ontop = not c.ontop end,

@@ -6,13 +6,18 @@ My personal configuration of the awesome window manager. Comments added to rc.lu
 
 Disclaimer: This was set up on Debian 10, so it is conceivable that it will not work on all distros in this exact form. 
 
-Install from repositories: `sudo apt install awesome`
+Install from repositories: 
 
-Clone this repository into `~/.config`
+```
+sudo apt install awesome
+```
+
+Clone this repository into your `.config`
 
 ```
 cd ~/.config
 git clone https://github.com/kp9001/awesome.git
+cd awesome
 ```
 
 Look at the contents of the requirements script. These are all packages which must be installed to take full advantage of the custom configuration (such as screenshots, for example).
@@ -20,13 +25,16 @@ Look at the contents of the requirements script. These are all packages which mu
 If you wish to set a custom wallpaper, find the path of an image file you wish to use. Enter the scripts directory and run the wallpaper script with the absolute path to the desired image as an argument
 
 ```
-cd ~/.config/awesome/scripts
+cd scripts
 sudo ./wallpaper.sh /path/to/wallpaper
 ```
 
-Before you load it, you might want to modify or completely remove the `xrandr` command in the autorun list. This was a hacky fix for a weird display situation. 
+Things you might want to modify before loading: 
 
-Log off, switch your desktop environment to awesome, and log back in. If all went well, it should load awesome with this configuration without errors, and with your wallpaper. If you wish to make any changes, open up `rc.lua` in your favorite editor and have fun. Press `alt+ctrl+r` to reload awesome (unless you modified this already). 
+- The `xrandr` command in the autorun list at the bottom of `rc.lua` can be completely removed for most people. It was a hacky fix to a display issue. Alternatively, you can modify it to manipulate your displays at will. 
+- The keybinds for `move_to_screen` are based on my monitors being numbered opposite of what is reasonable. The default binding is commented out beneath my modified bindings. 
+
+When you are ready to load awesome, log off, switch your desktop environment to awesome, and log back in. If all went well, it should load awesome with this configuration without errors, and with your wallpaper. If you wish to make any changes, open up `rc.lua` in your favorite editor and have fun. Press `alt+ctrl+r` to reload awesome (unless you modified this already). 
 
 If you wish to check out other themes, all the themes which ship with awesome in the debian repository are copied into the themes directory. You may try them out by editing the line just after "variable definitions" in `rc.lua` which currently reads 
 
