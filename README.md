@@ -57,13 +57,13 @@ Volume up/down keys perform their normal function. This can be changed to any ke
 
 Disclaimer: This was set up on Debian 10, so it is conceivable that it will not work on all distros in this exact form. 
 
-Install from repositories: 
+Awesome can be installed from your linux repository 
 
 ```
 sudo apt install awesome
 ```
 
-Clone this repository into your `.config`
+To copy this confuguration, clone the git repository into your `.config`
 
 ```
 cd ~/.config
