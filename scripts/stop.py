@@ -13,7 +13,7 @@ mouse.position = (200,200)
 
 #define functions to listen for the mouse being moved or being clicked
 #execute systemctl poweroff if either is detected
-#the mouse is allowed to move within a very small square around (200,00)
+#the mouse is allowed to move within a very small square around (200,200)
 #this is to prevent systemctl poweroff from being executed from a small bump
 
 def is_moved(x,y):
@@ -30,14 +30,11 @@ mouse_listener = MouseListener(on_move=is_moved, on_click=is_clicked)
 mouse_listener.start()
 
 #define function to listen for keypresses
-#if any key besides esc or f8 is pressed, systemctl poweroff will be executed
+#if any key besides esc is pressed, systemctl poweroff will be executed
 #esc is the secret key to stop the program
-#f8 is also excluded from the first case because I was using autokey
-#with f8 as the hotkey to initiate the program and I did not want
-#double keypresses to execute systemctl poweroff
 
 def on_press(key):
-    if key != Key.esc and key != Key.f8:
+    if key != Key.esc:
         os.system('systemctl poweroff')
     elif key == Key.esc:
         mouse_listener.stop()
