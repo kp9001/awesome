@@ -28,8 +28,6 @@ case $1 in
 		;;
 esac
 
-echo "$options"
-
 [ $options = "firefox" ] && /opt/firefox/firefox 
 [ $options = "tor" ] && torbrowser-launcher
 [ $options = "signal" ] && signal-desktop --no-sandbox
