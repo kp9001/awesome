@@ -1,5 +1,5 @@
 #!/bin/bash
-DIR=$HOME/pictures/screenshots
+DIR=$HOME/pictures/.screenshots
 TIME=`date +%Y-%m-%d-%H-%M-%S`
 IMAGE=$DIR"/"$TIME".png"
 OPTIONS=""
