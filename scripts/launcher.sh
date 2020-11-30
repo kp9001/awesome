@@ -20,6 +20,9 @@ case $1 in
 	"--keepass")
 		options+="keepass"
 		;;
+	"--coh")
+		options+="coh"
+		;;
 	"--poweroff")
 		options+="poweroff"
 		;;
@@ -34,6 +37,7 @@ esac
 [ $options = "discord" ] && discord
 [ $options = "element" ] && element-desktop
 [ $options = "keepass" ] && keepassxc
+[ $options = "coh" ] && wine $HOME/documents/coh/Homecoming/bin/win64/launcher.exe
 [ $options = "poweroff" ] && systemctl poweroff
 
 ## This is some nonsense I wrote. It's not important at all. 
