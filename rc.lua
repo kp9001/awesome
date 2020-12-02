@@ -280,6 +280,10 @@ globalkeys = gears.table.join(
     	function () 
 	    awful.util.spawn(gears.filesystem.get_configuration_dir() .. "scripts/launcher.sh --coh", false) 
     	end, { description = "Launch City of Heroes", group = "launcher" }),
+    awful.key({ modkey, "Control" }, "p", 
+    	function () 
+	    awful.util.spawn(gears.filesystem.get_configuration_dir() .. "scripts/launcher.sh --python", false) 
+    	end, { description = "Launch Python", group = "launcher" }),
     awful.key({ modkey }, "\\", 
     	function () 
 	    awful.util.spawn(gears.filesystem.get_configuration_dir() .. "scripts/launcher.sh --stop", false) 

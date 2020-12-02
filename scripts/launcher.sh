@@ -23,6 +23,9 @@ case $1 in
 	"--coh")
 		options+="coh"
 		;;
+	"--python")
+		options+="python"
+		;;
 	"--poweroff")
 		options+="poweroff"
 		;;
@@ -38,6 +41,7 @@ esac
 [ $options = "element" ] && element-desktop
 [ $options = "keepass" ] && keepassxc
 [ $options = "coh" ] && wine $HOME/documents/coh/Homecoming/bin/win64/launcher.exe
+[ $options = "python" ] && xterm -e python3
 [ $options = "poweroff" ] && systemctl poweroff
 
 ## This is some nonsense I wrote. It's not important at all. 
