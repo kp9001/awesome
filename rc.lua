@@ -284,6 +284,10 @@ globalkeys = gears.table.join(
     	function () 
 	    awful.util.spawn(gears.filesystem.get_configuration_dir() .. "scripts/launcher.sh --python", false) 
     	end, { description = "Launch Python", group = "launcher" }),
+    awful.key({ modkey, "Control" }, "r", 
+    	function () 
+	    awful.util.spawn(gears.filesystem.get_configuration_dir() .. "scripts/launcher.sh --r", false) 
+    	end, { description = "Launch R", group = "launcher" }),
     awful.key({ modkey }, "\\", 
     	function () 
 	    awful.util.spawn(gears.filesystem.get_configuration_dir() .. "scripts/launcher.sh --stop", false) 
@@ -370,7 +374,7 @@ globalkeys = gears.table.join(
     -- Standard stuff
     awful.key({ modkey, "Control" }, "Return", function () awful.spawn(terminal) end,
               {description = "open a terminal", group = "launcher"}),
-    awful.key({ modkey, "Control" }, "r", awesome.restart,
+    awful.key({ modkey, "Control", "Shift" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
     awful.key({ modkey, "Control" }, "Delete", awesome.quit,
               {description = "quit awesome", group = "awesome"}),

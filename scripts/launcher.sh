@@ -26,6 +26,9 @@ case $1 in
 	"--python")
 		options+="python"
 		;;
+	"--r")
+		options+="r"
+		;;
 	"--poweroff")
 		options+="poweroff"
 		;;
@@ -42,6 +45,7 @@ esac
 [ $options = "keepass" ] && keepassxc
 [ $options = "coh" ] && wine $HOME/documents/coh/Homecoming/bin/win64/launcher.exe
 [ $options = "python" ] && xterm -e python3
+[ $options = "r" ] && xterm -e R
 [ $options = "poweroff" ] && systemctl poweroff
 
 ## This is some nonsense I wrote. It's not important at all. 

@@ -11,7 +11,7 @@ My personal configuration of the awesome window manager. The original can be fou
 - `alt+space` -- launch run prompt
 - `alt+ctrl+space` -- launch application menu
 - `alt+b` -- toggle menu bar
-- `alt+ctrl+r` -- reload awesome
+- `alt+ctrl+shift+r` -- reload awesome
 - `alt+ctrl+delete` -- quit awesome
 - `alt+ctrl+shift+delete` -- power off computer
 
@@ -19,13 +19,15 @@ My personal configuration of the awesome window manager. The original can be fou
 
 Disclaimer: may require changing default terminal in `rc.lua` and most likely will require editing launch commands in `scripts/launcher.sh`.
 
-- `alt+ctrl+enter` -- spawn a terminal
+- `alt+ctrl+enter` -- launch a terminal
 - `alt+ctrl+w` -- launch firefox
 - `alt+ctrl+shift+w` -- launch tor
 - `alt+ctrl+a` -- launch keepass
 - `alt+ctrl+s` -- launch signal
 - `alt+ctrl+d` -- launch discord
 - `alt+ctrl+e` -- launch element
+- `alt+ctrl+p` -- launch python shell
+- `alt+ctrl+r` -- launch R shell
 
 ### Layout
 
