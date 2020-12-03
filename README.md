@@ -9,7 +9,7 @@ My personal configuration of the awesome window manager. The original can be fou
 - `alt+s` -- toggle list of keybinds
 - `alt+w` -- launch menu
 - `alt+space` -- launch run prompt
-- `alt+ctrl+space` -- launch application menu
+- `alt+shift+space` -- launch application menu
 - `alt+b` -- toggle menu bar
 - `alt+ctrl+shift+r` -- reload awesome
 - `alt+ctrl+delete` -- quit awesome

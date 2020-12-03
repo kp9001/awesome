@@ -420,7 +420,7 @@ globalkeys = gears.table.join(
               {description = "run prompt", group = "launcher"}),
 
     -- Call the menubar (much like an application manager but minimalist)
-    awful.key({ modkey, "Control" }, "space", function() menubar.show() end,
+    awful.key({ modkey, "Shift" }, "space", function() menubar.show() end,
               {description = "show the menubar", group = "launcher"})
 )
 
