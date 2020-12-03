@@ -11,8 +11,6 @@ local naughty = require("naughty")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
 -- Widgets
-local volumebar_widget = require("volumebar")
---local net_widgets = require("net_widgets") --not yet working
 
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
@@ -219,19 +217,8 @@ awful.screen.connect_for_each_screen(function(s)
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-	    volumebar_widget({
-	        main_color = '#af13f7',
-   		mute_color = '#ff0000',
-   		width = 50,
-   		shape = 'rounded_bar',
-		margins = 8,
-		inc_volume_cmd = 'amixer -D pulse sset Master 0.1%+',
-		dec_volume_cmd = 'amixer -D pulse sset Master 0.1%-',
-		tog_volume_cmd = 'amixer -D pulse sset Master toggle'
-		}),
             --mykeyboardlayout,
             --wibox.widget.systray(),
-	    --net_wired = net_widgets.indicator({interface="enp2s0"}), -- not working :'(
             mytextclock,
             s.mylayoutbox,
         },
@@ -513,13 +500,13 @@ for i = 1, 9 do
   	  {},
   	  'XF86AudioRaiseVolume',
   	  --volume_widget.raise
-	  function () awful.util.spawn("amixer -D pulse sset Master 1%+") end
+	  function () awful.util.spawn("pactl set-sink-volume 1 +0.1%") end
   	),
   	awful.key(
   	  {},
   	  'XF86AudioLowerVolume',
   	  --volume_widget.lower
-	  function () awful.util.spawn("amixer -D pulse sset Master 1%-") end
+	  function () awful.util.spawn("pactl set-sink-volume 1 -0.1%") end
   	),
   	awful.key(
   	  {},
