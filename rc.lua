@@ -297,6 +297,12 @@ globalkeys = gears.table.join(
 	    awful.util.spawn(gears.filesystem.get_configuration_dir() .. "scripts/launcher.sh --poweroff", false) 
     	end, { description = "Power off computer", group = "System" }),
 
+	-- Keybinds to record screen/webcam
+    awful.key({ modkey, "Control" }, "Print", nil,
+        function()
+            awful.util.spawn(gears.filesystem.get_configuration_dir() .. "scripts/launcher.sh --record", false)
+        end, { description = "Record screen/webcam", group = "Recording" }),
+
 	-- Keybinds to take screenshots. 
 	-- References the screenshot script in the repo. 
     awful.key({ }, "Print", nil,

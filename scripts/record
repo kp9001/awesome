@@ -1,0 +1,57 @@
+#!/bin/bash
+DIR=$HOME/videos/.recordings
+TIME=`date +%Y-%m-%d-%H-%M-%S`
+VIDEO=$DIR"/"$TIME".mkv"
+options=""
+
+PS3='Choose your video source: '
+vidSources=("Screen" "Webcam")
+select vid in "${vidSources[@]}"; do
+	case $vid in
+		"Screen")
+			options+="record-s"
+			break
+			;;
+		"Webcam")
+			options+="record-w"
+			break
+			;;
+		*) echo "invalid option $REPLY";;
+	esac
+done
+
+PS3='Choose your audio source: '
+audSources=("Computer" "Microphone" "Both" "Neither")
+select aud in "${audSources[@]}"; do
+	case $aud in
+		"Computer")
+			options+="a"
+			break
+			;;
+		"Microphone")
+			options+="m"
+			break
+			;;
+		"Both")
+			options+="am"
+			break
+			;;
+		"Neither")
+			options+=""
+			break
+			;;
+		*) echo "invalid option $REPLY";;
+	esac
+done
+
+[ ! -d $DIR ] && mkdir -p $DIR
+
+[ $options = "record-s" ] && recorder --screen $VIDEO
+[ $options = "record-sa" ] && recorder --screen-audio $VIDEO
+[ $options = "record-sm" ] && recorder --screen-mic $VIDEO
+[ $options = "record-sam" ] && recorder --screen-audio-mic $VIDEO
+[ $options = "record-w" ] && recorder --webcam $VIDEO
+[ $options = "record-wa" ] && recorder --webcam-audio $VIDEO
+[ $options = "record-wm" ] && recorder --webcam-mic $VIDEO
+[ $options = "record-wam" ] && recorder --webcam-audio-mic $VIDEO
+

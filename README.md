@@ -51,6 +51,18 @@ Disclaimer: may require changing default terminal in `rc.lua` and most likely wi
 - `alt+shift+number` -- move client to tag number
 - `alt+ctrl+number` -- toggle view tag number on current tag
 
+### Screenshots
+
+- `print` -- screenshot everything (all screens)
+- `alt+print` -- screenshot active client
+- `shift+print` -- select region to screenshot
+
+### Recording
+
+- `alt+control+print` -- launch terminal with interactive prompts to being screen/webcam recordings
+
+Screenshots will by default be saved in `$HOME/pictures/.screenshots` and recordings will be saved in `$HOME/videos/.recordings`. These directories will be created if they do not exist. In order to take advantage of these features, please read the relevant details in the installation section!
+
 ### Volume
 
 Volume up/down keys perform their normal function. This can be changed to any keys in `rc.lua`. Search for "volume controls".
@@ -76,7 +88,7 @@ cd awesome
 In order to take full advantage of the custom configuration (for instance, screenshots), you will need to make sure a few dependencies are installed:
 
 ```
-sudo apt install feh maim xclip xdotool
+sudo apt install feh maim xclip xdotool ffmpeg
 ```
 
 If you wish to set a custom wallpaper, find the path of an image file you wish to use. Enter the scripts directory and run the wallpaper script with the absolute path to the desired image as an argument
@@ -84,6 +96,12 @@ If you wish to set a custom wallpaper, find the path of an image file you wish t
 ```
 cd scripts
 sudo ./wallpaper.sh /path/to/wallpaper
+```
+
+In order to use the keybindings for screen/webcam recording, open `scripts/recorder` in a text editor. You will want to change the entries for the variables `AUDIO` and `MIC` to match your system. To do this, use `pactl list sources` and identify which sources you wish to use for audio and microphone. The name of the audio source (computer speakers, headphones, etc.) should be used in place of `alsa_output...`, and the name of the microphone source should be used in place of `alsa_input...`. Once this is complete, copy the relevant scripts to your `/usr/bin` using
+
+```
+sudo cp record recorder /usr/bin
 ```
 
 Things you might want to modify before loading: 
