@@ -609,7 +609,7 @@ awful.rules.rules = {
      }
     },
 
-    -- For those clients that MUST float (none of these apply to me so I just kept the defaults)
+    -- For those clients that MUST float
     { rule_any = {
         instance = {
           "DTA",  -- Firefox addon DownThemAll.
@@ -629,6 +629,9 @@ awful.rules.rules = {
 
         name = {
           "Event Tester",  -- xev.
+	  "python3",
+	  "R",
+	  "record"
         },
         role = {
           "AlarmWindow",  -- Thunderbird's calendar.

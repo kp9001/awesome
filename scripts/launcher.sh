@@ -47,9 +47,9 @@ esac
 [ $options = "element" ] && element-desktop
 [ $options = "keepass" ] && keepassxc
 [ $options = "coh" ] && wine $HOME/documents/coh/Homecoming/bin/win64/launcher.exe
-[ $options = "python" ] && xterm -e python3
+[ $options = "python" ] && xterm -e python3 -q
+[ $options = "r" ] && xterm -e R -q
 [ $options = "record" ] && xterm -e record
-[ $options = "r" ] && xterm -e R
 [ $options = "poweroff" ] && systemctl poweroff
 
 ## This is some nonsense I wrote. It's not important at all. 

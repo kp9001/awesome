@@ -16,8 +16,8 @@ local watch = require("awful.widget.watch")
 local wibox = require("wibox")
 
 local GET_VOLUME_CMD = 'amixer -D pulse sget Master'
-local INC_VOLUME_CMD = 'amixer -D pulse sset Master 5%+'
-local DEC_VOLUME_CMD = 'amixer -D pulse sset Master 5%-'
+local INC_VOLUME_CMD = 'amixer -D pulse sset Master 1%+'
+local DEC_VOLUME_CMD = 'amixer -D pulse sset Master 1%-'
 local TOG_VOLUME_CMD = 'amixer -D pulse sset Master toggle'
 
 local widget = {}
