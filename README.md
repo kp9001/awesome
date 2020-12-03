@@ -98,7 +98,7 @@ cd scripts
 sudo ./wallpaper.sh /path/to/wallpaper
 ```
 
-In order to use the keybindings for screen/webcam recording, open `scripts/recorder` in a text editor. You will want to change the entries for the variables `AUDIO` and `MIC` to match your system. To do this, use `pactl list sources` and identify which sources you wish to use for audio and microphone. The name of the audio source (computer speakers, headphones, etc.) should be used in place of `alsa_output...`, and the name of the microphone source should be used in place of `alsa_input...`. Once this is complete, copy the relevant scripts to your `/usr/bin` using
+In order to use the keybindings for screen/webcam recording, open `scripts/recorder` in a text editor. First, change the `RES` variable to the resolution of your monitor. Next, you will want to change the entries for the variables `AUDIO` and `MIC` to match your system. To do this, use `pactl list sources` and identify which sources you wish to use for audio and microphone. The name of the audio source (computer speakers, headphones, etc.) should be used in place of `alsa_output...`, and the name of the microphone source should be used in place of `alsa_input...`. Once this is complete, copy the relevant scripts to your `/usr/bin` using
 
 ```
 sudo cp record recorder /usr/bin

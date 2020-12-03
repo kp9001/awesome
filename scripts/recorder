@@ -2,6 +2,7 @@
 OPTIONS=""
 OUTPUT=${2?Give output file name}
 
+RES="1920x1080"
 AUDIO=$"alsa_output.usb-DeSheng_Electronics_Inc._XIBERIA-00.analog-stereo.monitor"
 MIC=$"alsa_input.usb-DeSheng_Electronics_Inc._XIBERIA-00.analog-mono"
 
@@ -35,10 +36,10 @@ esac
 # must modify AUDIO and MIC variables for different hardware!
 # can use " -f alsa -i default " or " -f alsa -i pulse " for single audio, probably mic
 
-[ $OPTIONS = "screen" ] && ffmpeg -f x11grab -s 1920x1080 -i :0.0 $OUTPUT 
-[ $OPTIONS = "screenM" ] && ffmpeg -f x11grab -s 1920x1080 -i :0.0 -f pulse -i $MIC $OUTPUT
-[ $OPTIONS = "screenA" ] && ffmpeg -f x11grab -s 1920x1080 -i :0.0 -f pulse -i $AUDIO $OUTPUT
-[ $OPTIONS = "screenAM" ] && ffmpeg -f x11grab -s 1920x1080 -i :0.0 -f pulse -i $AUDIO -f pulse -i $MIC -filter_complex amix=inputs=2 $OUTPUT
+[ $OPTIONS = "screen" ] && ffmpeg -f x11grab -s $RES -i :0.0 $OUTPUT 
+[ $OPTIONS = "screenM" ] && ffmpeg -f x11grab -s $RES -i :0.0 -f pulse -i $MIC $OUTPUT
+[ $OPTIONS = "screenA" ] && ffmpeg -f x11grab -s $RES -i :0.0 -f pulse -i $AUDIO $OUTPUT
+[ $OPTIONS = "screenAM" ] && ffmpeg -f x11grab -s $RES -i :0.0 -f pulse -i $AUDIO -f pulse -i $MIC -filter_complex amix=inputs=2 $OUTPUT
 [ $OPTIONS = "webcam" ] && ffmpeg -i /dev/video0 $OUTPUT
 [ $OPTIONS = "webcamM" ] && ffmpeg -i /dev/video0 -f pulse -i $MIC $OUTPUT
 [ $OPTIONS = "webcamA" ] && ffmpeg -i /dev/video0 -f pulse -i $AUDIO $OUTPUT
