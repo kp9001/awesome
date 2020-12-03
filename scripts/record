@@ -2,10 +2,11 @@
 DIR=$HOME/videos/.recordings
 TIME=`date +%Y-%m-%d-%H-%M-%S`
 VIDEO=$DIR"/"$TIME".mkv"
+AUDIO=$DIR"/"$TIME".mp3"
 OPTIONS=""
 
 PS3='Choose your video source: '
-vidSources=("Screen" "Webcam")
+vidSources=("Screen" "Webcam" "Neither")
 select vid in "${vidSources[@]}"; do
 	case $vid in
 		"Screen")
@@ -14,6 +15,10 @@ select vid in "${vidSources[@]}"; do
 			;;
 		"Webcam")
 			OPTIONS+="record-w"
+			break
+			;;
+		"Neither")
+			OPTIONS+=""
 			break
 			;;
 		*) echo "invalid option $REPLY";;
@@ -46,6 +51,9 @@ done
 
 [ ! -d $DIR ] && mkdir -p $DIR
 
+[ $OPTIONS = "a" ] && recorder --audio $AUDIO
+[ $OPTIONS = "m" ] && recorder --mic $AUDIO
+[ $OPTIONS = "am" ] && recorder --audio-mic $AUDIO
 [ $OPTIONS = "record-s" ] && recorder --screen $VIDEO
 [ $OPTIONS = "record-sa" ] && recorder --screen-audio $VIDEO
 [ $OPTIONS = "record-sm" ] && recorder --screen-mic $VIDEO
