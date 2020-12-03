@@ -2,18 +2,18 @@
 DIR=$HOME/videos/.recordings
 TIME=`date +%Y-%m-%d-%H-%M-%S`
 VIDEO=$DIR"/"$TIME".mkv"
-options=""
+OPTIONS=""
 
 PS3='Choose your video source: '
 vidSources=("Screen" "Webcam")
 select vid in "${vidSources[@]}"; do
 	case $vid in
 		"Screen")
-			options+="record-s"
+			OPTIONS+="record-s"
 			break
 			;;
 		"Webcam")
-			options+="record-w"
+			OPTIONS+="record-w"
 			break
 			;;
 		*) echo "invalid option $REPLY";;
@@ -25,19 +25,19 @@ audSources=("Computer" "Microphone" "Both" "Neither")
 select aud in "${audSources[@]}"; do
 	case $aud in
 		"Computer")
-			options+="a"
+			OPTIONS+="a"
 			break
 			;;
 		"Microphone")
-			options+="m"
+			OPTIONS+="m"
 			break
 			;;
 		"Both")
-			options+="am"
+			OPTIONS+="am"
 			break
 			;;
 		"Neither")
-			options+=""
+			OPTIONS+=""
 			break
 			;;
 		*) echo "invalid option $REPLY";;
@@ -46,12 +46,12 @@ done
 
 [ ! -d $DIR ] && mkdir -p $DIR
 
-[ $options = "record-s" ] && recorder --screen $VIDEO
-[ $options = "record-sa" ] && recorder --screen-audio $VIDEO
-[ $options = "record-sm" ] && recorder --screen-mic $VIDEO
-[ $options = "record-sam" ] && recorder --screen-audio-mic $VIDEO
-[ $options = "record-w" ] && recorder --webcam $VIDEO
-[ $options = "record-wa" ] && recorder --webcam-audio $VIDEO
-[ $options = "record-wm" ] && recorder --webcam-mic $VIDEO
-[ $options = "record-wam" ] && recorder --webcam-audio-mic $VIDEO
+[ $OPTIONS = "record-s" ] && recorder --screen $VIDEO
+[ $OPTIONS = "record-sa" ] && recorder --screen-audio $VIDEO
+[ $OPTIONS = "record-sm" ] && recorder --screen-mic $VIDEO
+[ $OPTIONS = "record-sam" ] && recorder --screen-audio-mic $VIDEO
+[ $OPTIONS = "record-w" ] && recorder --webcam $VIDEO
+[ $OPTIONS = "record-wa" ] && recorder --webcam-audio $VIDEO
+[ $OPTIONS = "record-wm" ] && recorder --webcam-mic $VIDEO
+[ $OPTIONS = "record-wam" ] && recorder --webcam-audio-mic $VIDEO
 
