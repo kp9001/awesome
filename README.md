@@ -80,7 +80,7 @@ sudo apt install awesome
 To copy this confuguration, clone the git repository into your `.config`
 
 ```
-cd ~/.config
+cd $HOME/.config
 git clone https://github.com/kp9001/awesome.git
 cd awesome
 ```
