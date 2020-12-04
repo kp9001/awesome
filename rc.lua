@@ -59,7 +59,7 @@ editor = "vim"
 editor_cmd = terminal .. " -e " .. editor
 
 -- Default modkey.
-modkey = "Mod1"
+modkey = "Mod4"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 -- The ones I don't care for are commented out but saved for future reference
@@ -145,13 +145,12 @@ vicious.register(netwidget, vicious.widgets.net, " ${enp2s0 up_kb} kb ↑  ${enp
 diskwidget = wibox.widget.textbox()
 vicious.register(diskwidget, vicious.widgets.fs, " ${/ used_gb} gb / ${/ size_gb} gb   |  ")
 
--- Internatl IP widget
+-- Internal IP widget
 --ipwidget = wibox.widget.textbox()
 --vicious.register(ipwidget, vicious.widgets.ip, " $1 ")
 
--- Package update widget
-pkgwidget = wibox.widget.textbox()
-vicious.register(pkgwidget, vicious.widgets.pkg, " |   Updates: $1 ")
+--mywidget = wibox.widget.textbox()
+--mywidget.text = "This is a test"
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -241,7 +240,6 @@ awful.screen.connect_for_each_screen(function(s)
             mylauncher,
             s.mytaglist,
             s.mypromptbox,
-	    pkgwidget,
         },
         s.mytasklist, -- Middle widget
         { -- Right widgets
@@ -785,7 +783,7 @@ autorunApps =
 	"fehbg",
 	"xcompmgr",
 	"xrandr --output HDMI-1 --pos 0x0 --output DVI-D-1 --pos 1920x0",
-	"unclutter -idle 0.5"
+	"unclutter -idle 1 -jitter 50"
 }
 
 if autorun then

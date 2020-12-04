@@ -6,68 +6,68 @@ My personal configuration of the awesome window manager. The original can be fou
 
 ### System
 
-- `alt+s` -- toggle list of keybinds
-- `alt+w` -- launch menu
-- `alt+shift+space` -- launch run prompt
-- `alt+ctrl+space` -- launch application menu
-- `alt+b` -- toggle menu bar
-- `alt+ctrl+shift+r` -- reload awesome
-- `alt+ctrl+delete` -- quit awesome
-- `alt+ctrl+shift+delete` -- power off computer
+- `super+s` -- toggle list of keybinds
+- `super+w` -- launch menu
+- `super+shift+space` -- launch run prompt
+- `super+ctrl+space` -- launch application menu
+- `super+b` -- toggle menu bar
+- `super+ctrl+shift+r` -- reload awesome
+- `super+ctrl+delete` -- quit awesome
+- `super+ctrl+shift+delete` -- power off computer
 
 ### Launch
 
 Disclaimer: may require changing default terminal in `rc.lua` and most likely will require editing launch commands in `scripts/launcher.sh`.
 
-- `alt+ctrl+enter` -- launch a terminal
-- `alt+ctrl+w` -- launch firefox
-- `alt+ctrl+shift+w` -- launch tor
-- `alt+ctrl+a` -- launch keepass
-- `alt+ctrl+s` -- launch signal
-- `alt+ctrl+d` -- launch discord
-- `alt+ctrl+e` -- launch element
-- `alt+ctrl+p` -- launch python shell
-- `alt+ctrl+r` -- launch R shell
+- `super+ctrl+enter` -- launch a terminal
+- `super+ctrl+w` -- launch firefox
+- `super+ctrl+shift+w` -- launch tor
+- `super+ctrl+a` -- launch keepass
+- `super+ctrl+s` -- launch signal
+- `super+ctrl+d` -- launch discord
+- `super+ctrl+e` -- launch element
+- `super+ctrl+p` -- launch python shell
+- `super+ctrl+r` -- launch R shell
 
 ### Layout
 
-- `alt+ctrl+shift+h/j/k/l/i` -- switch to layout with master on left/bottom/top/right/top-left
-- `alt+ctrl+shift+f` -- toggle floating on focused client
-- `alt+ctrl+j/k` -- switch focus to next client down/up the stack
-- `alt+shift+j/k` -- move clients down/up the stack
-- `alt+ctrl+h/l` -- switch focus to screen (monitor) on the left/right
-- `alt+shift+h/l` -- move client to screen on the left/right
-- `alt+shift+enter` -- move client to master
-- `alt+shift+.` -- increase number of masters by 1
-- `alt+shift+,` -- decrease number of masters by 1
-- `alt+h/l` -- resize clients horizontally
-- `alt+f` -- toggle fullscreen on focused client
-- `alt+m` -- toggle maximize on focused client 
-- `alt+shift+m` -- toggle horizontal maximize on focused client 
-- `alt+ctrl+m` -- toggle vertical maximize on focused client 
-- `alt+shift+down` -- minimize client
-- `alt+shift+up` -- un-minimize client
-- `alt+number` -- switch focus to tag (workspace) number
-- `alt+shift+number` -- move client to tag number
-- `alt+ctrl+number` -- toggle view tag number on current tag
+- `super+ctrl+shift+h/j/k/l/i` -- switch to layout with master on left/bottom/top/right/top-left
+- `super+ctrl+shift+f` -- toggle floating on focused client
+- `super+ctrl+j/k` -- switch focus to next client down/up the stack
+- `super+shift+j/k` -- move clients down/up the stack
+- `super+ctrl+h/l` -- switch focus to screen (monitor) on the left/right
+- `super+shift+h/l` -- move client to screen on the left/right
+- `super+shift+enter` -- move client to master
+- `super+shift+.` -- increase number of masters by 1
+- `super+shift+,` -- decrease number of masters by 1
+- `super+h/l` -- resize clients horizontally
+- `super+f` -- toggle fullscreen on focused client
+- `super+m` -- toggle maximize on focused client 
+- `super+shift+m` -- toggle horizontal maximize on focused client 
+- `super+ctrl+m` -- toggle vertical maximize on focused client 
+- `super+shift+down` -- minimize client
+- `super+shift+up` -- un-minimize client
+- `super+number` -- switch focus to tag (workspace) number
+- `super+shift+number` -- move client to tag number
+- `super+ctrl+number` -- toggle view tag number on current tag
 
 ### Music (mocp)
-- `alt+space` -- toggle pause on mocp
-- `alt+p` -- begin playlist on mocp
-- `alt+n` -- move to next track on mocp
-- `alt+shift+n` -- move to previous track on mocp
+- `super+space` -- toggle pause on mocp
+- `super+p` -- begin playlist on mocp
+- `super+n` -- move to next track on mocp
+- `super+shift+n` -- move to previous track on mocp
 
 These tools assume you have a playlist saved in the program mocp. You can install this with `sudo apt install mocp` and learn how to use it with `mocp --help` and pressing `?` inside the `mocp` terminal interface. 
 
 ### Screenshots
 
 - `print` -- screenshot everything (all screens)
-- `alt+print` -- screenshot active client
+- `super+print` -- screenshot active client
 - `shift+print` -- select region to screenshot
 
 ### Recording
 
-- `alt+control+print` -- launch terminal with interactive prompts to being screen/webcam recordings
+- `super+control+print` -- launch terminal with interactive prompts to being screen/webcam recordings
 
 Screenshots will by default be saved in `$HOME/pictures/.screenshots` and recordings will be saved in `$HOME/videos/.recordings`. These directories will be created if they do not exist. In order to take advantage of these features, please read the relevant details in the installation section!
 
@@ -118,7 +118,7 @@ Things you might want to modify before loading:
 - The keybinds for `move_to_screen` are based on my monitors being numbered opposite of what is reasonable. The default binding is commented out beneath my modified bindings. 
 - The `unclutter` command in `autorun` only allows the cursor to show while idle for 500 ms. You might not want this. 
 
-When you are ready to load awesome, log off, switch your desktop environment to awesome, and log back in. If all went well, it should load awesome with this configuration without errors, and with your wallpaper. If you wish to make any changes, open up `rc.lua` in your favorite editor and have fun. Press `alt+ctrl+r` to reload awesome (unless you modified this already). 
+When you are ready to load awesome, log off, switch your desktop environment to awesome, and log back in. If all went well, it should load awesome with this configuration without errors, and with your wallpaper. If you wish to make any changes, open up `rc.lua` in your favorite editor and have fun. Press `super+ctrl+r` to reload awesome (unless you modified this already). 
 
 If you wish to check out other themes, all the themes which ship with awesome in the debian repository are copied into the themes directory. You may try them out by editing the line just after "variable definitions" in `rc.lua` which currently reads 
 
