@@ -10,8 +10,8 @@ local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
 -- Widget and layout library
 local wibox = require("wibox")
--- Widgets
-local textclock = require("widgets.textclock")
+local vicious = require("vicious")
+--local ip_widget = require("widgets.ip")
 
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
@@ -123,8 +123,35 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- {{{ Wibar
--- Create a textclock widget
-mytextclock = textclock()
+-- Date widget
+datewidget = wibox.widget.textbox()
+vicious.register(datewidget, vicious.widgets.date, " %A  -  %Y-%m-%d  -  %H:%M:%S  ", 1)
+
+-- Memory widget
+memwidget = wibox.widget.textbox()
+vicious.cache(vicious.widgets.mem)
+vicious.register(memwidget,vicious.widgets.mem, " $1%  RAM   |  ", 1)
+
+-- CPU widget
+cpuwidget = wibox.widget.textbox()
+vicious.cache(vicious.widgets.cpu)
+vicious.register(cpuwidget, vicious.widgets.cpu, " $1%  CPU   |  ", 1)
+
+-- Network usage widget
+netwidget = wibox.widget.textbox()
+vicious.register(netwidget, vicious.widgets.net, " ${enp2s0 up_kb} kb ↑  ${enp2s0 down_kb} kb ↓   |  ", 1)
+
+-- Disk space widget
+diskwidget = wibox.widget.textbox()
+vicious.register(diskwidget, vicious.widgets.fs, " ${/ used_gb} gb / ${/ size_gb} gb   |  ")
+
+-- Internatl IP widget
+--ipwidget = wibox.widget.textbox()
+--vicious.register(ipwidget, vicious.widgets.ip, " $1 ")
+
+-- Package update widget
+pkgwidget = wibox.widget.textbox()
+vicious.register(pkgwidget, vicious.widgets.pkg, " |   Updates: $1 ")
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -214,13 +241,19 @@ awful.screen.connect_for_each_screen(function(s)
             mylauncher,
             s.mytaglist,
             s.mypromptbox,
+	    pkgwidget,
         },
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             --mykeyboardlayout,
             --wibox.widget.systray(),
-            mytextclock,
+	    --ipwidget;
+	    cpuwidget,
+	    memwidget,
+	    netwidget,
+	    diskwidget,
+	    datewidget,
             s.mylayoutbox,
         },
     }
