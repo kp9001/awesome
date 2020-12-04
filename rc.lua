@@ -125,7 +125,7 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 -- {{{ Wibar
 -- Date widget
 datewidget = wibox.widget.textbox()
-vicious.register(datewidget, vicious.widgets.date, " %A  -  %Y-%m-%d  -  %H:%M:%S  ", 1)
+vicious.register(datewidget, vicious.widgets.date, " %A  -  %Y-%m-%d  -  %H:%M:%S  (%Z)  ", 1)
 
 -- Memory widget
 memwidget = wibox.widget.textbox()
@@ -785,7 +785,7 @@ autorunApps =
 	"fehbg",
 	"xcompmgr",
 	"xrandr --output HDMI-1 --pos 0x0 --output DVI-D-1 --pos 1920x0",
-	"unclutter -idle 0.5"
+	"unclutter -idle 0.1"
 }
 
 if autorun then
