@@ -784,7 +784,8 @@ autorunApps =
 {
 	"fehbg",
 	"xcompmgr",
-	"xrandr --output HDMI-1 --pos 0x0 --output DVI-D-1 --pos 1920x0"
+	"xrandr --output HDMI-1 --pos 0x0 --output DVI-D-1 --pos 1920x0",
+	"unclutter -idle 0.5"
 }
 
 if autorun then

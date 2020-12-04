@@ -57,6 +57,8 @@ Disclaimer: may require changing default terminal in `rc.lua` and most likely wi
 - `alt+n` -- move to next track on mocp
 - `alt+shift+n` -- move to previous track on mocp
 
+These tools assume you have a playlist saved in the program mocp. You can install this with `sudo apt install mocp` and learn how to use it with `mocp --help` and pressing `?` inside the `mocp` terminal interface. 
+
 ### Screenshots
 
 - `print` -- screenshot everything (all screens)
@@ -94,7 +96,7 @@ cd awesome
 In order to take full advantage of the custom configuration (for instance, screenshots), you will need to make sure a few dependencies are installed:
 
 ```
-sudo apt install feh maim xclip xdotool ffmpeg
+sudo apt install feh maim xclip xdotool ffmpeg unclutter
 ```
 
 If you wish to set a custom wallpaper, find the path of an image file you wish to use. Enter the scripts directory and run the wallpaper script with the absolute path to the desired image as an argument
