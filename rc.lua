@@ -318,6 +318,24 @@ globalkeys = gears.table.join(
 	    awful.util.spawn(gears.filesystem.get_configuration_dir() .. "scripts/launcher.sh --poweroff", false) 
     	end, { description = "Power off computer", group = "System" }),
 
+	-- Control mocp (music player)
+    awful.key({ modkey }, "space", nil,
+        function()
+            awful.util.spawn(gears.filesystem.get_configuration_dir() .. "scripts/mocp.sh --pause", false)
+        end, { description = "Toggle pause on mocp", group = "Music" }),
+    awful.key({ modkey }, "p", nil,
+        function()
+            awful.util.spawn(gears.filesystem.get_configuration_dir() .. "scripts/mocp.sh --play", false)
+        end, { description = "Begin playlist on mocp", group = "Music" }),
+    awful.key({ modkey }, "n", nil,
+        function()
+            awful.util.spawn(gears.filesystem.get_configuration_dir() .. "scripts/mocp.sh --next", false)
+        end, { description = "Move to next track on mocp", group = "Music" }),
+    awful.key({ modkey, "Shift" }, "n", nil,
+        function()
+            awful.util.spawn(gears.filesystem.get_configuration_dir() .. "scripts/mocp.sh --previous", false)
+        end, { description = "Move to previous track on mocp", group = "Music" }),
+
 	-- Keybinds to record screen/webcam
     awful.key({ modkey, "Control" }, "Print", nil,
         function()
@@ -450,11 +468,11 @@ globalkeys = gears.table.join(
               {description = "restore minimized", group = "client"}),
 
     -- Call the run prompt
-    awful.key({ modkey }, "space", function () awful.screen.focused().mypromptbox:run() end,
+    awful.key({ modkey, "Shift" }, "space", function () awful.screen.focused().mypromptbox:run() end,
               {description = "run prompt", group = "launcher"}),
 
     -- Call the menubar (much like an application manager but minimalist)
-    awful.key({ modkey, "Shift" }, "space", function() menubar.show() end,
+    awful.key({ modkey, "Control" }, "space", function() menubar.show() end,
               {description = "show the menubar", group = "launcher"})
 )
 

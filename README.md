@@ -8,8 +8,8 @@ My personal configuration of the awesome window manager. The original can be fou
 
 - `alt+s` -- toggle list of keybinds
 - `alt+w` -- launch menu
-- `alt+space` -- launch run prompt
-- `alt+shift+space` -- launch application menu
+- `alt+shift+space` -- launch run prompt
+- `alt+ctrl+space` -- launch application menu
 - `alt+b` -- toggle menu bar
 - `alt+ctrl+shift+r` -- reload awesome
 - `alt+ctrl+delete` -- quit awesome
@@ -50,6 +50,12 @@ Disclaimer: may require changing default terminal in `rc.lua` and most likely wi
 - `alt+number` -- switch focus to tag (workspace) number
 - `alt+shift+number` -- move client to tag number
 - `alt+ctrl+number` -- toggle view tag number on current tag
+
+### Music (mocp)
+- `alt+space` -- toggle pause on mocp
+- `alt+p` -- begin playlist on mocp
+- `alt+n` -- move to next track on mocp
+- `alt+shift+n` -- move to previous track on mocp
 
 ### Screenshots
 
