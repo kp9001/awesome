@@ -123,34 +123,34 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- {{{ Wibar
--- Date widget
-datewidget = wibox.widget.textbox()
-vicious.register(datewidget, vicious.widgets.date, " %A  -  %Y-%m-%d  -  %H:%M:%S  (%Z)  ", 1)
+-- CPU widget
+cpuwidget = wibox.widget.textbox()
+vicious.cache(vicious.widgets.cpu)
+vicious.register(cpuwidget, vicious.widgets.cpu, " $1%  CPU   |  ", 1)
 
 -- Memory widget
 memwidget = wibox.widget.textbox()
 vicious.cache(vicious.widgets.mem)
 vicious.register(memwidget,vicious.widgets.mem, " $1%  RAM   |  ", 1)
 
--- CPU widget
-cpuwidget = wibox.widget.textbox()
-vicious.cache(vicious.widgets.cpu)
-vicious.register(cpuwidget, vicious.widgets.cpu, " $1%  CPU   |  ", 1)
-
 -- Network usage widget
 netwidget = wibox.widget.textbox()
 vicious.register(netwidget, vicious.widgets.net, " ${enp2s0 up_kb} kb ↑  ${enp2s0 down_kb} kb ↓   |  ", 1)
+
+---- Internal IP widget
+--ipwidget = wibox.widget.textbox()
+--awful.spawn.easy_async("sed -n '$p' /tmp/ip.txt", function(output) 
+--	ipwidget.text = output 
+--end)
 
 -- Disk space widget
 diskwidget = wibox.widget.textbox()
 vicious.register(diskwidget, vicious.widgets.fs, " ${/ used_gb} gb / ${/ size_gb} gb   |  ")
 
--- Internal IP widget
---ipwidget = wibox.widget.textbox()
---vicious.register(ipwidget, vicious.widgets.ip, " $1 ")
+-- Date widget
+datewidget = wibox.widget.textbox()
+vicious.register(datewidget, vicious.widgets.date, " %A  -  %Y-%m-%d  -  %H:%M:%S  (%Z)  ", 1)
 
---mywidget = wibox.widget.textbox()
---mywidget.text = "This is a test"
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -250,6 +250,7 @@ awful.screen.connect_for_each_screen(function(s)
 	    cpuwidget,
 	    memwidget,
 	    netwidget,
+	    --ipwidget,
 	    diskwidget,
 	    datewidget,
             s.mylayoutbox,
@@ -780,6 +781,7 @@ end)
 autorun = true
 autorunApps = 
 {
+	--"ipprint",
 	"fehbg",
 	"xcompmgr",
 	"xrandr --output HDMI-1 --pos 0x0 --output DVI-D-1 --pos 1920x0",
