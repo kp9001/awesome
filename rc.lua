@@ -779,8 +779,7 @@ end)
 -- }}
 
 -- {{ Autorun programs
--- You will almost certainly want to modify or entirely remove the xrandr command! 
--- This was a hacky fix for a weird display situation I had
+-- the xrandr command was a hacky fix in the past but is now resolved, but left for reference
 autorun = true
 autorunApps = 
 {

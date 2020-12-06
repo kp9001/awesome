@@ -77,15 +77,13 @@ Volume up/down keys perform their normal function. This can be changed to any ke
 
 ## Installation
 
-Disclaimer: This was set up on Debian 10, so it is conceivable that it will not work on all distros in this exact form. 
-
 Awesome can be installed from your linux repository 
 
 ```
 sudo apt install awesome
 ```
 
-To copy this confuguration, clone the git repository into your `.config`
+or it can be built following instructions on the original awesome git repository. To copy this confuguration, clone the git repository into your `.config`
 
 ```
 cd $HOME/.config
@@ -96,7 +94,7 @@ cd awesome
 In order to take full advantage of the custom configuration (for instance, screenshots), you will need to make sure a few dependencies are installed:
 
 ```
-sudo apt install feh maim xclip xdotool ffmpeg unclutter
+sudo apt install feh maim xclip xdotool ffmpeg unclutter xterm
 ```
 
 If you wish to set a custom wallpaper, find the path of an image file you wish to use. Enter the scripts directory and run the wallpaper script with the absolute path to the desired image as an argument
@@ -114,8 +112,7 @@ sudo cp record recorder /usr/bin
 
 Things you might want to modify before loading: 
 
-- The `xrandr` command in the autorun list at the bottom of `rc.lua` can be completely removed for most people. It was a hacky fix to a display issue. Alternatively, you can modify it to manipulate your displays at will. 
-- The keybinds for `move_to_screen` are based on my monitors being numbered opposite of what is reasonable. The default binding is commented out beneath my modified bindings. 
+- The keybinds for `move_to_screen` are based on my monitor setup. The default binding is commented out beneath my modified bindings. 
 - The `unclutter` command in `autorun` only allows the cursor to show while idle for 500 ms. You might not want this. 
 
 When you are ready to load awesome, log off, switch your desktop environment to awesome, and log back in. If all went well, it should load awesome with this configuration without errors, and with your wallpaper. If you wish to make any changes, open up `rc.lua` in your favorite editor and have fun. Press `super+ctrl+r` to reload awesome (unless you modified this already). 
