@@ -20,8 +20,8 @@ case $1 in
 	"--keepass")
 		options+="keepass"
 		;;
-	"--coh")
-		options+="coh"
+	"--lutris")
+		options+="lutris"
 		;;
 	"--python")
 		options+="python"
@@ -40,13 +40,13 @@ case $1 in
 		;;
 esac
 
-[ $options = "firefox" ] && /opt/firefox/firefox 
+[ $options = "firefox" ] && firefox
 [ $options = "tor" ] && torbrowser-launcher
 [ $options = "signal" ] && signal-desktop --no-sandbox
 [ $options = "discord" ] && discord
 [ $options = "element" ] && element-desktop
 [ $options = "keepass" ] && keepassxc
-[ $options = "coh" ] && wine $HOME/documents/coh/Homecoming/bin/win64/launcher.exe
+[ $options = "lutris" ] && lutris
 [ $options = "python" ] && xterm -e python3 -q
 [ $options = "r" ] && xterm -e R -q
 [ $options = "record" ] && xterm -e record

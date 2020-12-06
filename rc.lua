@@ -54,7 +54,7 @@ beautiful.init(theme_path)
 beautiful.useless_gap = 25
 
 -- This is used later as the default terminal and editor to run.
-terminal = "x-terminal-emulator"
+terminal = "xfce4-terminal"
 editor = "vim"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -298,8 +298,8 @@ globalkeys = gears.table.join(
     	end, { description = "Launch KeePassXC", group = "launcher" }),
     awful.key({ modkey, "Control" }, "c", 
     	function () 
-	    awful.util.spawn(gears.filesystem.get_configuration_dir() .. "scripts/launcher.sh --coh", false) 
-    	end, { description = "Launch City of Heroes", group = "launcher" }),
+	    awful.util.spawn(gears.filesystem.get_configuration_dir() .. "scripts/launcher.sh --lutris", false) 
+    	end, { description = "Launch Lutris", group = "launcher" }),
     awful.key({ modkey, "Control" }, "p", 
     	function () 
 	    awful.util.spawn(gears.filesystem.get_configuration_dir() .. "scripts/launcher.sh --python", false) 
@@ -498,9 +498,9 @@ clientkeys = gears.table.join(
 
     -- Move client to another screen (monitor)
     -- If your screens are more intelligently numbered than mine, you will probably want to swap these
-    awful.key({ modkey, "Shift" }, "l",      function (c) c:move_to_screen(1) end,
+    awful.key({ modkey, "Shift" }, "l",      function (c) c:move_to_screen(2) end,
               {description = "move to screen 1 (right)", group = "client"}),
-    awful.key({ modkey, "Shift" }, "h",      function (c) c:move_to_screen(2) end,
+    awful.key({ modkey, "Shift" }, "h",      function (c) c:move_to_screen(1) end,
               {description = "move to screen 2 (left)", group = "client"}),
     --awful.key({ modkey }, "o",      function (c) c:move_to_screen() end,
     --          {description = "move to other screen", group = "client"}),
@@ -636,7 +636,7 @@ root.keys(globalkeys)
 awful.rules.rules = {
     -- All clients will match this rule.
     { rule = { },
-      properties = { border_width = .5,
+      properties = { border_width = 0.5,
                      border_color = beautiful.border_normal,
                      focus = awful.client.focus.filter,
                      raise = true,
@@ -685,7 +685,10 @@ awful.rules.rules = {
 
     -- VLC always opens on screen 1 (right), tag 1
     { rule = { class = "vlc" },
-    	properties = { screen = 1, tag = "1" } },
+    	properties = { screen = 2, tag = "1" } },
+
+    { rule = { class = "Firefox" },
+	properties = { maximized = false, floating = false } },
 
 -- {{{ Signals
 -- Signal function to execute when a new client appears.
@@ -784,7 +787,7 @@ autorunApps =
 	--"ipprint",
 	"fehbg",
 	"xcompmgr",
-	"xrandr --output HDMI-1 --pos 0x0 --output DVI-D-1 --pos 1920x0",
+	--"xrandr --output HDMI-1 --pos 0x0 --output DVI-D-1 --pos 1920x0",
 	"unclutter -idle 1 -jitter 50"
 }
 
