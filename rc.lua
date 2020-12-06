@@ -758,7 +758,7 @@ end)
 -- {{ Transparency (the stuff in the comments of the conditional aren't quite working out yet)
 client.connect_signal("focus", function(c)
                         c.border_color = beautiful.border_focus
-			if c.class ~= "vlc" 
+			if c.class ~= "vlc" and c.class ~="Wine"
 				--and c.class ~= "x-terminal-emulator" 
 				--and not c.maximized = 0
 				--and not c.maximized_horizontal = 0
@@ -768,7 +768,7 @@ client.connect_signal("focus", function(c)
 end)
 client.connect_signal("unfocus", function(c)
                         c.border_color = beautiful.border_normal
-			if c.class ~= "vlc"
+			if c.class ~= "vlc" and c.class ~="Wine"
 				--and c.class ~= "x-terminal-emulator" 
 				--and not c.maximized = 0
 				--and not c.maximized_horizontal = 0
