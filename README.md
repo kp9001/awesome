@@ -56,8 +56,10 @@ Disclaimer: may require changing default terminal in `rc.lua` and most likely wi
 - `super+p` -- begin playlist on mocp
 - `super+n` -- move to next track on mocp
 - `super+shift+n` -- move to previous track on mocp
+- `super+right` -- seek forward on current track
+- `super+left` -- seek backwards on current track
 
-These tools assume you have a playlist saved in the program mocp. You can install this with `sudo apt install mocp` and learn how to use it with `mocp --help` and pressing `?` inside the `mocp` terminal interface. 
+These tools assume you have a playlist saved in the program mocp. You can install this with `sudo apt install mocp` and learn how to use it with `mocp --help` and pressing `?` inside the `mocp` terminal interface. There is also a `super+ctrl+m` bind to open ranger in the directory `~/music` to search for songs for form a playlist. This is used in conjunction with a ranger configuration which has its own keybinds to create mocp playlists. 
 
 ### Screenshots
 

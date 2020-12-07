@@ -318,6 +318,10 @@ globalkeys = gears.table.join(
     	end, { description = "Power off computer", group = "System" }),
 
 	-- Control mocp (music player)
+    awful.key({ modkey, "Control" }, "m", nil,
+        function()
+            awful.util.spawn(gears.filesystem.get_configuration_dir() .. "scripts/mocp.sh --search", false)
+        end, { description = "Search for music in ranger", group = "Music" }),
     awful.key({ modkey }, "space", nil,
         function()
             awful.util.spawn(gears.filesystem.get_configuration_dir() .. "scripts/mocp.sh --pause", false)
@@ -334,6 +338,14 @@ globalkeys = gears.table.join(
         function()
             awful.util.spawn(gears.filesystem.get_configuration_dir() .. "scripts/mocp.sh --previous", false)
         end, { description = "Move to previous track on mocp", group = "Music" }),
+    awful.key({ modkey }, "Right", nil,
+        function()
+            awful.util.spawn(gears.filesystem.get_configuration_dir() .. "scripts/mocp.sh --seek+", false)
+        end, { description = "Seek forward on current track", group = "Music" }),
+    awful.key({ modkey }, "Left", nil,
+        function()
+            awful.util.spawn(gears.filesystem.get_configuration_dir() .. "scripts/mocp.sh --seek-", false)
+        end, { description = "Seek backwards on current track", group = "Music" }),
 
 	-- Keybinds to record screen/webcam
     awful.key({ modkey, "Control" }, "Print", nil,
@@ -663,20 +675,18 @@ awful.rules.rules = {
           "Sxiv",
           "Wpa_gui",
           "veromix",
+	  "XTerm",
           "xtightvncviewer"},
 
         name = {
           "Event Tester",  -- xev.
-	  "python3",
-	  "R",
-	  "record"
         },
         role = {
           "AlarmWindow",  -- Thunderbird's calendar.
           "ConfigManager",  -- Thunderbird's about:config.
           "pop-up",       -- e.g. Google Chrome's (detached) Developer Tools.
         }
-      }, properties = { floating = true }},
+      }, properties = { floating = true, x = 700, y = 300 } },
 
     -- Add titlebars to normal clients and dialogs
     { rule_any = {type = { "normal", "dialog" }
@@ -689,6 +699,9 @@ awful.rules.rules = {
 
     { rule = { class = "Firefox" },
 	properties = { maximized = false, floating = false } },
+
+    { rule = { name = "music && ranger" },
+	properties = { x = 500, y = 100, width = 800, height = 800 } },
 
 -- {{{ Signals
 -- Signal function to execute when a new client appears.
