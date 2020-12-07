@@ -779,14 +779,12 @@ end)
 -- }}
 
 -- {{ Autorun programs
--- the xrandr command was a hacky fix in the past but is now resolved, but left for reference
 autorun = true
 autorunApps = 
 {
 	--"ipprint",
 	"fehbg",
 	"xcompmgr",
-	--"xrandr --output HDMI-1 --pos 0x0 --output DVI-D-1 --pos 1920x0",
 	"unclutter -idle 1 -jitter 50"
 }
 
