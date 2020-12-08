@@ -27,7 +27,7 @@ esac
 
 [ $options = "search" ] && xterm -e "cd ~/music && ranger"
 [ $options = "pause" ] && mocp --toggle-pause
-[ $options = "play" ] && mocp -S && mocp --play
+[ $options = "play" ] && mocp --play
 [ $options = "next" ] && mocp --next
 [ $options = "previous" ] && mocp --previous
 [ $options = "seek+" ] && mocp --seek=10

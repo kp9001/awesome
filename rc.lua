@@ -124,9 +124,13 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- {{{ Wibar
 -- CPU widget
+
+-- Mocp widget
+mocpwidget = awful.widget.watch('bash -c "mocp -i | grep Title | sed -n 1p | sed s/Title://"', 1)
+
 cpuwidget = wibox.widget.textbox()
 vicious.cache(vicious.widgets.cpu)
-vicious.register(cpuwidget, vicious.widgets.cpu, " $1%  CPU   |  ", 1)
+vicious.register(cpuwidget, vicious.widgets.cpu, " $1%  CPU   |  ", 10)
 
 -- Memory widget
 memwidget = wibox.widget.textbox()
@@ -138,10 +142,7 @@ netwidget = wibox.widget.textbox()
 vicious.register(netwidget, vicious.widgets.net, " ${enp2s0 up_kb} kb ↑  ${enp2s0 down_kb} kb ↓   |  ", 1)
 
 ---- Internal IP widget
---ipwidget = wibox.widget.textbox()
---awful.spawn.easy_async("sed -n '$p' /tmp/ip.txt", function(output) 
---	ipwidget.text = output 
---end)
+--ipwidget = awful.widget.watch('bash -c "ifconfig | grep 192.168 | awk '{print $2}'"', 1)
 
 -- Disk space widget
 diskwidget = wibox.widget.textbox()
@@ -240,17 +241,20 @@ awful.screen.connect_for_each_screen(function(s)
             mylauncher,
             s.mytaglist,
             s.mypromptbox,
+	    wibox.widget.textbox('   |  '),
+            mocpwidget,
         },
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             --mykeyboardlayout,
             --wibox.widget.systray(),
-	    --ipwidget;
 	    cpuwidget,
 	    memwidget,
 	    netwidget,
+	    --wibox.widget.textbox('   |   '),
 	    --ipwidget,
+	    --wibox.widget.textbox('   |   '),
 	    diskwidget,
 	    datewidget,
             s.mylayoutbox,
@@ -798,6 +802,7 @@ autorunApps =
 	--"ipprint",
 	"fehbg",
 	"xcompmgr",
+	"mocp -S",
 	"unclutter -idle 1 -jitter 50"
 }
 
