@@ -251,9 +251,9 @@ awful.screen.connect_for_each_screen(function(s)
             --wibox.widget.systray(),
 	    cpuwidget,
 	    memwidget,
-	    netwidget,
 	    ipwidget,
 	    wibox.widget.textbox('   |   '),
+	    netwidget,
 	    diskwidget,
 	    datewidget,
             s.mylayoutbox,
@@ -566,19 +566,19 @@ for i = 1, 9 do
   	  {},
   	  'XF86AudioRaiseVolume',
   	  --volume_widget.raise
-	  function () awful.util.spawn("pactl set-sink-volume 1 +0.1%") end
+	  function () awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ +0.1%") end
   	),
   	awful.key(
   	  {},
   	  'XF86AudioLowerVolume',
   	  --volume_widget.lower
-	  function () awful.util.spawn("pactl set-sink-volume 1 -0.1%") end
+	  function () awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ -0.1%") end
   	),
   	awful.key(
   	  {},
   	  'XF86AudioMute',
   	  --volume_widget.toggle
-	  function () awful.util.spawn("amixer -D pulse sset Master toggle") end
+	  function () awful.util.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle") end
 
   	),
 
@@ -700,6 +700,9 @@ awful.rules.rules = {
     { rule = { class = "vlc" },
     	properties = { screen = 2, tag = "1" } },
 
+    { rule = { class = "wine" },
+    	properties = { screen = 1, tag = "1", maximized = true } },
+
     { rule = { class = "Firefox" },
 	properties = { maximized = false, floating = false } },
 
@@ -774,21 +777,17 @@ end)
 -- {{ Transparency (the stuff in the comments of the conditional aren't quite working out yet)
 client.connect_signal("focus", function(c)
                         c.border_color = beautiful.border_focus
-			if c.class ~= "vlc" and c.class ~="Wine"
-				--and c.class ~= "x-terminal-emulator" 
-				--and not c.maximized = 0
-				--and not c.maximized_horizontal = 0
-				--and not c.maximized_vertical = 0 
+			if c.class ~= "vlc" 
+				and c.class ~="Wine"
+				--and c.maximized 
+				--and c.fullscreen 
 				then c.opacity = 0.95
 			end
 end)
 client.connect_signal("unfocus", function(c)
                         c.border_color = beautiful.border_normal
-			if c.class ~= "vlc" and c.class ~="Wine"
-				--and c.class ~= "x-terminal-emulator" 
-				--and not c.maximized = 0
-				--and not c.maximized_horizontal = 0
-				--and not c.maximized_vertical = 0 
+			if c.class ~= "vlc"
+				and c.class ~="Wine"
 			 	then c.opacity = 0.85
 			end
 end)
@@ -800,6 +799,7 @@ autorunApps =
 {
 	"fehbg",
 	"xcompmgr",
+	"nordvpn connect",
 	"mocp -S",
 	"unclutter -idle 1 -jitter 50"
 }
