@@ -126,7 +126,7 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 -- CPU widget
 
 -- Mocp widget
-mocpwidget = awful.widget.watch('bash -c "mocp -i | grep Title | sed -n 1p | sed s/Title://"', 1)
+mocpwidget = awful.widget.watch({ "bash", "-c", "mocp -i | grep Title | sed -n 1p | cut -f 2- -d ' '" }, 1)
 
 cpuwidget = wibox.widget.textbox()
 vicious.cache(vicious.widgets.cpu)
@@ -142,7 +142,7 @@ netwidget = wibox.widget.textbox()
 vicious.register(netwidget, vicious.widgets.net, " ${enp2s0 up_kb} kb ↑  ${enp2s0 down_kb} kb ↓   |  ", 1)
 
 ---- Internal IP widget
---ipwidget = awful.widget.watch('bash -c "ifconfig | grep 192.168 | awk '{print $2}'"', 1)
+ipwidget = awful.widget.watch({ "bash", "-c", "ifconfig | grep enp2s0 -A 1 | sed -n 2p | awk '{print $2}'" }, 10)
 
 -- Disk space widget
 diskwidget = wibox.widget.textbox()
@@ -241,7 +241,7 @@ awful.screen.connect_for_each_screen(function(s)
             mylauncher,
             s.mytaglist,
             s.mypromptbox,
-	    wibox.widget.textbox('   |  '),
+	    wibox.widget.textbox('   |   '),
             mocpwidget,
         },
         s.mytasklist, -- Middle widget
@@ -252,9 +252,8 @@ awful.screen.connect_for_each_screen(function(s)
 	    cpuwidget,
 	    memwidget,
 	    netwidget,
-	    --wibox.widget.textbox('   |   '),
-	    --ipwidget,
-	    --wibox.widget.textbox('   |   '),
+	    ipwidget,
+	    wibox.widget.textbox('   |   '),
 	    diskwidget,
 	    datewidget,
             s.mylayoutbox,
@@ -799,7 +798,6 @@ end)
 autorun = true
 autorunApps = 
 {
-	--"ipprint",
 	"fehbg",
 	"xcompmgr",
 	"mocp -S",
