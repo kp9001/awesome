@@ -371,6 +371,12 @@ globalkeys = gears.table.join(
             awful.util.spawn(gears.filesystem.get_configuration_dir() .. "scripts/screenshot.sh --active", false)
         end, { description = "Make screenshot of active window", group = "Screenshot" }),
 
+	-- Random background
+    awful.key({ modkey, "Control" }, "b", nil,
+        function()
+            awful.util.spawn(gears.filesystem.get_configuration_dir() .. "scripts/fehRand.sh", false)
+        end, { description = "Change to random wallpaper", group = "Wallpaper" }),
+
 	--Because minimalism
     awful.key({ modkey }, "b",
               function ()

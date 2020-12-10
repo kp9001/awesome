@@ -50,6 +50,7 @@ Disclaimer: may require changing default terminal in `rc.lua` and most likely wi
 - `super+number` -- switch focus to tag (workspace) number
 - `super+shift+number` -- move client to tag number
 - `super+ctrl+number` -- toggle view tag number on current tag
+- `super+ctrl+b` -- change wallpaper to a random image in `~/pictures/wallpapers`
 
 ### Music (mocp)
 - `super+space` -- toggle pause on mocp
