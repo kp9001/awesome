@@ -803,7 +803,7 @@ end)
 autorun = true
 autorunApps = 
 {
-	"fehbg",
+	"fehbgRand",
 	"xcompmgr",
 	"nordvpn connect",
 	"mocp -S",
