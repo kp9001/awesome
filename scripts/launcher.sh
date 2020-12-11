@@ -42,7 +42,7 @@ esac
 
 [ $options = "firefox" ] && firefox
 [ $options = "tor" ] && torbrowser-launcher
-[ $options = "signal" ] && signal-desktop --no-sandbox
+[ $options = "signal" ] && signal-desktop-beta
 [ $options = "discord" ] && discord
 [ $options = "element" ] && element-desktop
 [ $options = "keepass" ] && keepassxc
