@@ -11,7 +11,6 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- Widget and layout library
 local wibox = require("wibox")
 local vicious = require("vicious")
---local ip_widget = require("widgets.ip")
 
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
@@ -123,11 +122,11 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- {{{ Wibar
--- CPU widget
 
 -- Mocp widget
 mocpwidget = awful.widget.watch({ "bash", "-c", "mocp -i | grep Title | sed -n 1p | cut -f 2- -d ' '" }, 1)
 
+-- CPU widget
 cpuwidget = wibox.widget.textbox()
 vicious.cache(vicious.widgets.cpu)
 vicious.register(cpuwidget, vicious.widgets.cpu, " $1%  CPU   |  ", 10)

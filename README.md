@@ -59,7 +59,7 @@ Disclaimer: may require changing default terminal in `rc.lua` and most likely wi
 - `super+right` -- seek forward on current track
 - `super+left` -- seek backwards on current track
 
-These tools assume you have a playlist saved in the program mocp. You can install this with `sudo apt install mocp` and learn how to use it with `mocp --help` and pressing `?` inside the `mocp` terminal interface. There is also a `super+ctrl+m` bind to open ranger in the directory `~/music` to search for songs for form a playlist. This is used in conjunction with a ranger configuration which has its own keybinds to create mocp playlists. 
+These tools assume you have a playlist saved in the program mocp. You can install this with `sudo apt install moc moc-ffmpeg-plugin` and learn how to use it with `mocp --help`, or by pressing `?` inside the `mocp` terminal interface. There is also a `super+ctrl+m` bind to open ranger in the directory `~/music` to search for songs for form a playlist. This is used in conjunction with a ranger configuration which has its own keybinds to create mocp playlists. 
 
 ### Screenshots
 
@@ -118,6 +118,7 @@ Things you might want to modify before loading:
 
 - The keybinds for `move_to_screen` are based on my monitor setup. The default binding is commented out beneath my modified bindings. 
 - The `unclutter` command in `autorun` only allows the cursor to show while idle for 500 ms. You might not want this. 
+- The widgets, especially the network ones, are set up specifically for my system. You may wish to modify some arguments so they work for you. Search for `Wibar` in `rc.lua`. For instance, you will want to change all instances of `enp2s0` to your network connection, perhaps `eth0` or `wlan0`. 
 
 When you are ready to load awesome, log off, switch your desktop environment to awesome, and log back in. If all went well, it should load awesome with this configuration without errors, and with your wallpaper. If you wish to make any changes, open up `rc.lua` in your favorite editor and have fun. Press `super+ctrl+r` to reload awesome (unless you modified this already). 
 
