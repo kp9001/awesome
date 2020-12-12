@@ -50,7 +50,6 @@ Disclaimer: may require changing default terminal in `rc.lua` and most likely wi
 - `super+number` -- switch focus to tag (workspace) number
 - `super+shift+number` -- move client to tag number
 - `super+ctrl+number` -- toggle view tag number on current tag
-- `super+ctrl+b` -- change wallpaper to a random image in `~/pictures/wallpapers`
 
 ### Music (mocp)
 - `super+space` -- toggle pause on mocp
@@ -100,18 +99,14 @@ In order to take full advantage of the custom configuration (for instance, scree
 sudo apt install feh maim xclip xdotool ffmpeg unclutter xterm
 ```
 
-If you wish to set a custom wallpaper, find the path of an image file you wish to use. Enter the scripts directory and run the wallpaper script with the absolute path to the desired image as an argument
+To set a wallpaper, simply move an image into the directory `~/pictures/wallpapers` and then run 
 
 ```
 cd scripts
-sudo ./wallpaper.sh /path/to/wallpaper
+sudo cp fehbg /usr/bin/fehbg
 ```
 
-Alternatively, you can choose to load many wallpapers into the directory `~/pictures/wallpapers` and have awesome load one at random each session. If you wish to do this, simply run 
-
-```
-sudo ./randWallpaper.sh
-```
+If you wish, you may put multiple wallpapers in to the `~/pictures/wallpapers` directory. If you do this, then each time you restart awesome, a random one will be selected. To change to a new random wallpaper, use `super+ctrl+b`.
 
 In order to use the keybindings for screen/webcam recording, open `scripts/recorder` in a text editor. First, change the `RES` variable to the resolution of your monitor. Next, you will want to change the entries for the variables `AUDIO` and `MIC` to match your system. To do this, use `pactl list sources` and identify which sources you wish to use for audio and microphone. The name of the audio source (computer speakers, headphones, etc.) should be used in place of `alsa_output...`, and the name of the microphone source should be used in place of `alsa_input...`. Once this is complete, copy the relevant scripts to your `/usr/bin` using
 

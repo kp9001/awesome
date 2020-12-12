@@ -374,7 +374,7 @@ globalkeys = gears.table.join(
 	-- Random background
     awful.key({ modkey, "Control" }, "b", nil,
         function()
-            awful.util.spawn(gears.filesystem.get_configuration_dir() .. "scripts/fehRand.sh", false)
+            awful.util.spawn(gears.filesystem.get_configuration_dir() .. "scripts/fehbg", false)
         end, { description = "Change to random wallpaper", group = "Wallpaper" }),
 
 	--Because minimalism
@@ -803,7 +803,7 @@ end)
 autorun = true
 autorunApps = 
 {
-	"fehbgRand",
+	"fehbg",
 	"xcompmgr",
 	"nordvpn connect",
 	"mocp -S",
