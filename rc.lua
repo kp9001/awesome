@@ -320,7 +320,7 @@ globalkeys = gears.table.join(
     	end, { description = "Power off computer", group = "System" }),
 
 	-- Control mocp (music player)
-    awful.key({ modkey, "Control" }, "m", nil,
+    awful.key({ modkey, "Shift", "Control" }, "m", nil,
         function()
             awful.util.spawn(gears.filesystem.get_configuration_dir() .. "scripts/mocp.sh --search", false)
         end, { description = "Search for music in ranger", group = "Music" }),

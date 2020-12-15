@@ -59,7 +59,7 @@ Disclaimer: may require changing default terminal in `rc.lua` and most likely wi
 - `super+right` -- seek forward on current track
 - `super+left` -- seek backwards on current track
 
-These tools assume you have a playlist saved in the program mocp. You can install this with `sudo apt install moc moc-ffmpeg-plugin` and learn how to use it with `mocp --help`, or by pressing `?` inside the `mocp` terminal interface. There is also a `super+ctrl+m` bind to open ranger in the directory `~/music` to search for songs for form a playlist. This is used in conjunction with a ranger configuration which has its own keybinds to create mocp playlists. 
+These tools assume you have a playlist saved in the program mocp. You can install this with `sudo apt install moc moc-ffmpeg-plugin` and learn how to use it with `mocp --help`, or by pressing `?` inside the `mocp` terminal interface. There is also a `super+shift+ctrl+m` bind to open ranger in the directory `~/music` to search for songs for form a playlist. This is used in conjunction with a ranger configuration which has its own keybinds to create mocp playlists. 
 
 ### Screenshots
 
