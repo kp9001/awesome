@@ -804,7 +804,6 @@ autorunApps =
 {
 	"fehbg",
 	"xcompmgr",
-	"nordvpn connect",
 	"mocp -S",
 	"unclutter -idle 1 -jitter 50"
 }
