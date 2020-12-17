@@ -17,6 +17,9 @@ case $1 in
 	"--mirage")
 		options+="mirage"
 		;;
+	"--jitsi")
+		options+="jitsi"
+		;;
 	"--keepass")
 		options+="keepass"
 		;;
@@ -42,6 +45,7 @@ esac
 [ $options = "signal" ] && signal-desktop-beta
 [ $options = "discord" ] && discord
 [ $options = "mirage" ] && mirage
+[ $options = "jitsi" ] && jitsi
 [ $options = "keepass" ] && keepassxc
 [ $options = "python" ] && xterm -e python3 -q
 [ $options = "r" ] && xterm -e R -q

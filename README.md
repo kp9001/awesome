@@ -26,6 +26,7 @@ Disclaimer: may require changing default terminal in `rc.lua` and most likely wi
 - `super+ctrl+s` -- launch signal
 - `super+ctrl+d` -- launch discord
 - `super+ctrl+e` -- launch mirage (matrix)
+- `super+ctrl+e` -- launch jitsi
 - `super+ctrl+p` -- launch python shell
 - `super+ctrl+r` -- launch R shell
 

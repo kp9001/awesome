@@ -294,6 +294,10 @@ globalkeys = gears.table.join(
     	function () 
 	    awful.util.spawn(gears.filesystem.get_configuration_dir() .. "scripts/launcher.sh --mirage", false) 
     	end, { description = "Launch Mirage (Matrix)", group = "launcher" }),
+    awful.key({ modkey, "Control" }, "v", 
+    	function () 
+	    awful.util.spawn(gears.filesystem.get_configuration_dir() .. "scripts/launcher.sh --jitsi", false) 
+    	end, { description = "Launch Jitsi", group = "launcher" }),
     awful.key({ modkey, "Control" }, "a", 
     	function () 
 	    awful.util.spawn(gears.filesystem.get_configuration_dir() .. "scripts/launcher.sh --keepass", false) 
