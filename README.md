@@ -25,7 +25,7 @@ Disclaimer: may require changing default terminal in `rc.lua` and most likely wi
 - `super+ctrl+a` -- launch keepass
 - `super+ctrl+s` -- launch signal
 - `super+ctrl+d` -- launch discord
-- `super+ctrl+e` -- launch element
+- `super+ctrl+e` -- launch mirage (matrix)
 - `super+ctrl+p` -- launch python shell
 - `super+ctrl+r` -- launch R shell
 

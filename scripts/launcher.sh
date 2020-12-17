@@ -14,14 +14,11 @@ case $1 in
 	"--discord")
 		options+="discord"
 		;;
-	"--element")
-		options+="element"
+	"--mirage")
+		options+="mirage"
 		;;
 	"--keepass")
 		options+="keepass"
-		;;
-	"--lutris")
-		options+="lutris"
 		;;
 	"--python")
 		options+="python"
@@ -44,9 +41,8 @@ esac
 [ $options = "tor" ] && torbrowser-launcher
 [ $options = "signal" ] && signal-desktop-beta
 [ $options = "discord" ] && discord
-[ $options = "element" ] && element-desktop
+[ $options = "mirage" ] && mirage
 [ $options = "keepass" ] && keepassxc
-[ $options = "lutris" ] && lutris
 [ $options = "python" ] && xterm -e python3 -q
 [ $options = "r" ] && xterm -e R -q
 [ $options = "record" ] && xterm -e record
