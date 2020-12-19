@@ -1,0 +1,5 @@
+#!/bin/bash
+
+while :; 
+	do ping -q -c 1 1.1.1.1 > /dev/null && mbsync -a && sleep 1m || ping -q -c 1 1.0.0.1 > /dev/null && mbsync -a && sleep 1m || ping -q -c 1 example.org > /dev/null && mbsync -a && sleep 1m || sleep 10m; 
+done

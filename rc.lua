@@ -805,6 +805,7 @@ autorunApps =
 	"fehbg",
 	"xcompmgr",
 	"mocp -S",
+	"pkill mailsync && mailsync",
 	"unclutter -idle 1 -jitter 50"
 }
 
