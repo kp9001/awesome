@@ -124,24 +124,28 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 -- {{{ Wibar
 
 -- Mocp widget
-mocpwidget = awful.widget.watch({ "bash", "-c", "mocp -i | grep Title | sed -n 1p | cut -f 2- -d ' '" }, 1)
+mocpwidget = awful.widget.watch({ "bash", "-c", "mocp -i | grep Title | sed -n 1p | cut -f 2- -d ' '" }, 2)
+
+-- Bat widget
+--batwidget = wibox.widget.textbox()
+--vicious.register(batwidget, vicious.widgets.bat, " $2% Bat   |  ", 61, "BAT0")
 
 -- CPU widget
 cpuwidget = wibox.widget.textbox()
 vicious.cache(vicious.widgets.cpu)
-vicious.register(cpuwidget, vicious.widgets.cpu, " $1%  CPU   |  ", 10)
+vicious.register(cpuwidget, vicious.widgets.cpu, " $1%  CPU   |  ", 3)
 
 -- Memory widget
 memwidget = wibox.widget.textbox()
 vicious.cache(vicious.widgets.mem)
-vicious.register(memwidget,vicious.widgets.mem, " $1%  RAM   |  ", 1)
+vicious.register(memwidget,vicious.widgets.mem, " $1%  RAM   |  ", 5)
 
 -- Network usage widget
 netwidget = wibox.widget.textbox()
 vicious.register(netwidget, vicious.widgets.net, " ${enp2s0 up_kb} kb ↑  ${enp2s0 down_kb} kb ↓   |  ", 1)
 
 ---- Internal IP widget
-ipwidget = awful.widget.watch({ "bash", "-c", "ifconfig | grep enp2s0 -A 1 | sed -n 2p | awk '{print $2}'" }, 10)
+ipwidget = awful.widget.watch({ "bash", "-c", "ifconfig | grep enp2s0 -A 1 | sed -n 2p | awk '{print $2}'" }, 53)
 
 -- Disk space widget
 diskwidget = wibox.widget.textbox()
@@ -248,6 +252,7 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.layout.fixed.horizontal,
             --mykeyboardlayout,
             --wibox.widget.systray(),
+	    batwidget;
 	    cpuwidget,
 	    memwidget,
 	    ipwidget,
