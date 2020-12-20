@@ -592,6 +592,18 @@ for i = 1, 9 do
 
   	),
 
+	-----Brightness controls
+	---awful.key(
+	---  {}, 
+	---  "XF86MonBrightnessDown", 
+	---  function () awful.util.spawn("brightness -dec 1") end
+        ---),
+    	---awful.key(
+	---  {}, 
+	---  "XF86MonBrightnessUp", 
+	---  function () awful.util.spawn("brightness -inc 1") end
+	---),
+
         -- View tag only.
         awful.key({ modkey }, "#" .. i + 9,
                   function ()

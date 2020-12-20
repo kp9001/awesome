@@ -106,7 +106,7 @@ You can now move scripts as you wish from the `scripts` directory to `/usr/bin` 
 
 ```
 cd scripts
-sudo cp fehbg record recorder mailsync /usr/bin
+sudo cp fehbg record recorder mailsync brightness /usr/bin
 ```
 
 To set a wallpaper, simply move an image into the directory `~/pictures/wallpapers`. If you wish, you may put multiple wallpapers in to the `~/pictures/wallpapers` directory. If you do this, then each time you restart awesome, a random one will be selected. To change to a new random wallpaper, use `super+ctrl+b`.
@@ -121,6 +121,7 @@ Other things you might want to modify before loading:
 - The keybinds for `move_to_screen` are based on my monitor setup. The default binding is commented out beneath my modified bindings. 
 - The widgets, especially the network ones, are set up specifically for my system. You may wish to modify some arguments so they work for you. Search for `Wibar` in `rc.lua`. For instance, you will want to change all instances of `enp2s0` to your network connection, perhaps `eth0` or `wlan0`. 
 - If you are on a laptop, you will probably want to uncomment the lines for the battery widget (search for `batwidget`).
+- In order to enable backlight brightness control, you can search for `Brightness` in `rc.lua` and uncomment that block. 
 
 If all went well, awesome should now load with this configuration without errors, and with your wallpaper. If you wish to make any changes, open up `rc.lua` in your favorite editor and have fun. Press `super+ctrl+r` to reload awesome (unless you modified this already). 
 
