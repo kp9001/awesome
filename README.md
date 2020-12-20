@@ -102,25 +102,25 @@ In order to take full advantage of the custom configuration (for instance, scree
 sudo apt install feh maim xclip xdotool xcompmgr xterm ffmpeg unclutter moc moc-ffmpeg-plugin
 ```
 
-To set a wallpaper, simply move an image into the directory `~/pictures/wallpapers` and then run 
+You can now move scripts as you wish from the `scripts` directory to `/usr/bin` in order to take advantage of extra features. For everything, you can run
 
 ```
-sudo cp scripts/fehbg /usr/bin
+cd scripts
+sudo cp fehbg record recorder mailsync /usr/bin
 ```
 
-If you wish, you may put multiple wallpapers in to the `~/pictures/wallpapers` directory. If you do this, then each time you restart awesome, a random one will be selected. To change to a new random wallpaper, use `super+ctrl+b`.
+To set a wallpaper, simply move an image into the directory `~/pictures/wallpapers`. If you wish, you may put multiple wallpapers in to the `~/pictures/wallpapers` directory. If you do this, then each time you restart awesome, a random one will be selected. To change to a new random wallpaper, use `super+ctrl+b`.
 
-In order to use the keybindings for screen/webcam recording, open `scripts/recorder` in a text editor. First, change the `RES` variable to the resolution of your monitor. Next, you will want to change the entries for the variables `AUDIO` and `MIC` to match your system. To do this, use `pactl list sources` and identify which sources you wish to use for audio and microphone. The name of the audio source (computer speakers, headphones, etc.) should be used in place of `alsa_output...`, and the name of the microphone source should be used in place of `alsa_input...`. Once this is complete, copy the relevant scripts to your `/usr/bin` using
+In order to use the keybindings for screen/webcam recording, open `scripts/recorder` in a text editor. First, change the `RES` variable to the resolution of your monitor. Next, you will want to change the entries for the variables `AUDIO` and `MIC` to match your system. To do this, use `pactl list sources` and identify which sources you wish to use for audio and microphone. The name of the audio source (computer speakers, headphones, etc.) should be used in place of `alsa_output...`, and the name of the microphone source should be used in place of `alsa_input...`. 
 
-```
-sudo cp scripts/record scripts/recorder /usr/bin
-```
+Finally, `mailsync` will automtaically sync your email in the background, if you are using mutt and mbsync. If not, you should remove the lines with `mailsync` from your autostart list. 
 
-Things you might want to modify before loading: 
+Other things you might want to modify before loading: 
 
 - You may wish to remove from, add to, or modify the autorun section at the end of `rc.lua`. 
 - The keybinds for `move_to_screen` are based on my monitor setup. The default binding is commented out beneath my modified bindings. 
 - The widgets, especially the network ones, are set up specifically for my system. You may wish to modify some arguments so they work for you. Search for `Wibar` in `rc.lua`. For instance, you will want to change all instances of `enp2s0` to your network connection, perhaps `eth0` or `wlan0`. 
+- If you are on a laptop, you will probably want to uncomment the lines for the battery widget (search for `batwidget`).
 
 If all went well, awesome should now load with this configuration without errors, and with your wallpaper. If you wish to make any changes, open up `rc.lua` in your favorite editor and have fun. Press `super+ctrl+r` to reload awesome (unless you modified this already). 
 
