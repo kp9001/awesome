@@ -118,8 +118,8 @@ sudo cp scripts/record scripts/recorder /usr/bin
 
 Things you might want to modify before loading: 
 
+- You may wish to remove from, add to, or modify the autorun section at the end of `rc.lua`. 
 - The keybinds for `move_to_screen` are based on my monitor setup. The default binding is commented out beneath my modified bindings. 
-- The `unclutter` command in `autorun` only allows the cursor to show while idle for 500 ms. You might not want this. 
 - The widgets, especially the network ones, are set up specifically for my system. You may wish to modify some arguments so they work for you. Search for `Wibar` in `rc.lua`. For instance, you will want to change all instances of `enp2s0` to your network connection, perhaps `eth0` or `wlan0`. 
 
 If all went well, awesome should now load with this configuration without errors, and with your wallpaper. If you wish to make any changes, open up `rc.lua` in your favorite editor and have fun. Press `super+ctrl+r` to reload awesome (unless you modified this already). 
