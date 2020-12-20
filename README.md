@@ -2,6 +2,8 @@
 
 My personal configuration of the awesome window manager. The original can be found [here](https://github.com/awesomeWM/awesome). Comments added to rc.lua should roughly explain changes to the default configuration. 
 
+![Chat screenshot](images/screenshot.png)
+
 ## Keybinds
 
 ### System
@@ -72,7 +74,7 @@ These tools assume you have a playlist saved in the program mocp. You can instal
 
 - `super+control+print` -- launch terminal with interactive prompts to being screen/webcam recordings
 
-Screenshots will by default be saved in `$HOME/pictures/.screenshots` and recordings will be saved in `$HOME/videos/.recordings`. These directories will be created if they do not exist. In order to take advantage of these features, please read the relevant details in the installation section!
+Screenshots will by default be saved in `~/pictures/.screenshots` and recordings will be saved in `~/videos/.recordings`. These directories will be created if they do not exist. In order to take advantage of these features, please read the relevant details in the installation section!
 
 ### Volume
 
@@ -86,10 +88,10 @@ Awesome can be installed from your linux repository
 sudo apt install awesome
 ```
 
-or it can be built following instructions on the original awesome git repository. To copy this confuguration, clone the git repository into your `.config`
+or it can be built following instructions on the original awesome git repository [here](https://github.com/awesomeWM/awesome). To copy this confuguration, clone the git repository into your `.config`
 
 ```
-cd $HOME/.config
+cd ~/.config
 git clone https://github.com/kp9001/awesome.git
 cd awesome
 ```
@@ -97,14 +99,13 @@ cd awesome
 In order to take full advantage of the custom configuration (for instance, screenshots), you will need to make sure a few dependencies are installed:
 
 ```
-sudo apt install feh maim xclip xdotool ffmpeg unclutter xterm
+sudo apt install feh maim xclip xdotool xcompmgr xterm ffmpeg unclutter moc moc-ffmpeg-plugin
 ```
 
 To set a wallpaper, simply move an image into the directory `~/pictures/wallpapers` and then run 
 
 ```
-cd scripts
-sudo cp fehbg /usr/bin/fehbg
+sudo cp scripts/fehbg /usr/bin
 ```
 
 If you wish, you may put multiple wallpapers in to the `~/pictures/wallpapers` directory. If you do this, then each time you restart awesome, a random one will be selected. To change to a new random wallpaper, use `super+ctrl+b`.
@@ -112,7 +113,7 @@ If you wish, you may put multiple wallpapers in to the `~/pictures/wallpapers` d
 In order to use the keybindings for screen/webcam recording, open `scripts/recorder` in a text editor. First, change the `RES` variable to the resolution of your monitor. Next, you will want to change the entries for the variables `AUDIO` and `MIC` to match your system. To do this, use `pactl list sources` and identify which sources you wish to use for audio and microphone. The name of the audio source (computer speakers, headphones, etc.) should be used in place of `alsa_output...`, and the name of the microphone source should be used in place of `alsa_input...`. Once this is complete, copy the relevant scripts to your `/usr/bin` using
 
 ```
-sudo cp record recorder /usr/bin
+sudo cp scripts/record scripts/recorder /usr/bin
 ```
 
 Things you might want to modify before loading: 
@@ -121,9 +122,9 @@ Things you might want to modify before loading:
 - The `unclutter` command in `autorun` only allows the cursor to show while idle for 500 ms. You might not want this. 
 - The widgets, especially the network ones, are set up specifically for my system. You may wish to modify some arguments so they work for you. Search for `Wibar` in `rc.lua`. For instance, you will want to change all instances of `enp2s0` to your network connection, perhaps `eth0` or `wlan0`. 
 
-When you are ready to load awesome, log off, switch your desktop environment to awesome, and log back in. If all went well, it should load awesome with this configuration without errors, and with your wallpaper. If you wish to make any changes, open up `rc.lua` in your favorite editor and have fun. Press `super+ctrl+r` to reload awesome (unless you modified this already). 
+If all went well, awesome should now load with this configuration without errors, and with your wallpaper. If you wish to make any changes, open up `rc.lua` in your favorite editor and have fun. Press `super+ctrl+r` to reload awesome (unless you modified this already). 
 
-If you wish to check out other themes, all the themes which ship with awesome in the debian repository are copied into the themes directory. You may try them out by editing the line just after "variable definitions" in `rc.lua` which currently reads 
+If you wish to check out other themes, the default themes have been copied into the themes directory. You may try them out by editing the line just after "variable definitions" in `rc.lua` which currently reads 
 
 ```
 local theme_path = string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), "xresources")
@@ -133,3 +134,7 @@ You want to replace `xresources` with other theme names.
 
 You may also wish to modify the application launcher. Read the script called `launcher` in the scripts directory. Adding new applications to this require adding cases to the case list (the names are irrelevant) and adding corresponding lines to the bottom with whatever command calls the application. (To that effect, you can run any command this way.) You then must go into the keybinds section of `rc.lua` and assign a keybind to `launcher.sh` with some argument. Use the syntax of the ones currently in the config as a template. 
 
+## Screenshots
+
+![Chat screenshot](images/screenshot2.png)
+![Chat screenshot](images/screenshot3.png)
