@@ -133,6 +133,21 @@ You want to replace `xresources` with other theme names.
 
 You may also wish to modify the application launcher. Read the script called `launcher` in the scripts directory. Adding new applications to this require adding cases to the case list (the names are irrelevant) and adding corresponding lines to the bottom with whatever command calls the application. (To that effect, you can run any command this way.) You then must go into the keybinds section of `rc.lua` and assign a keybind to `launcher.sh` with some argument. Use the syntax of the ones currently in the config as a template. 
 
+## Other
+
+For ease of installation on new systems, I have included miscellaneous config files in `other`. In order to use these, run
+
+```
+cd ~/.config/awesome/other
+sudo apt install vim ranger zathura zathura-pdf-poppler moc moc-ffmpeg-plugin
+sudo cp vim/vimrc /etc/vim/
+cp ranger/rc.conf ~/.config/ranger/
+cp zathura/zathurarc ~/.config/zathura/
+cp mocp/config ~/.moc/
+```
+
+In liue of a personal mutt configuration, I am using Luke Smith's brilliant [Mutt Wizard](https://github.com/lukesmithxyz/mutt-wizard).
+
 ## Screenshots
 
 ![Chat screenshot](images/screenshot2.png)
