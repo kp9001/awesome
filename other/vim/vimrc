@@ -1,0 +1,153 @@
+runtime! debian.vim
+
+if filereadable("/etc/vim/vimrc.local")
+  source /etc/vim/vimrc.local
+endif
+
+augroup project
+  autocmd!
+  autocmd BufRead,BufNewFile *.h,*.c,*.C set filetype=c
+augroup END
+
+set number
+set relativenumber
+
+nnoremap ! :!<Space>
+
+let mapleader="\<Space>"
+
+vnoremap <Tab> >gv
+vnoremap <S-Tab> <gv
+
+nnoremap <leader>s :%s/\<<c-r><c-w>\>//gc<left><left><left>
+nnoremap <leader>k :m-2<cr>==
+nnoremap <leader>j :m+<cr>==
+xnoremap <leader>k :m-2<cr>gv=gv
+xnoremap <leader>j :m'>+<cr>gv=gv
+
+nnoremap < <C-w><
+nnoremap > <C-w>>
+nnoremap - <C-w>-
+nnoremap + <C-w>+
+
+noremap H ^
+noremap L g_
+noremap <Down> gj 
+noremap <Up> gk 
+noremap J 10j
+noremap K 10k
+noremap <C-j> }
+noremap <C-k> {
+
+inoremap ( ()<Left>
+inoremap { {}<Left>
+inoremap [ []<Left>
+
+inoremap <C-n> <Esc>lla
+inoremap <C-l> <Esc>la<Space>
+inoremap <C-h> <Left><Left>
+inoremap <C-j> <Esc>o
+inoremap <C-k> <Esc>0i<Enter><Up>
+
+vnoremap _* c*<c-r>"*
+vnoremap _( c(<c-r>")
+vnoremap _[ c[<c-r>"]
+vnoremap _{ c{<c-r>"}
+vnoremap _$ c$<c-r>"$
+vnoremap _" c"<c-r>""
+vnoremap _' c'<c-r>"'
+
+nnoremap _* bi*<Esc>ea*<Esc>
+nnoremap _( bi(<Esc>ea)<Esc>
+nnoremap _[ bi[<Esc>ea]<Esc>
+nnoremap _{ bi{<Esc>ea}<Esc>
+nnoremap _$ bi$<Esc>ea$<Esc>
+nnoremap _" bi"<Esc>ea"<Esc>
+nnoremap _' bi'<Esc>ea'<Esc>
+
+:au BufNewFile *.tex :!cat ~/documents/scripts/config/base.tex >> % 
+
+:au FileType tex map <leader><leader> <Esc>0jjo
+
+:au FileType tex map <leader>x<CR> :! xelatex %<CR><CR>
+:au FileType tex map <leader><CR> :! pdflatex %<CR><CR>
+:au FileType tex map O :! zathura $(echo % \| sed 's/tex$/pdf/') & disown<CR><CR> 
+
+:au FileType tex nnoremap ;be i\begin{enumerate}<CR><CR>\end{enumerate}<Up>\item<Space>
+:au FileType tex nnoremap ;bi i\begin{itemize}<CR><CR>\end{itemize}<Up>\item<Space>
+:au FileType tex nnoremap ;bD i\begin{description}<CR><CR>\end{description}<Up>\item<Space>[]<Esc>i
+:au FileType tex nnoremap ;ba i\begin{align*}<CR><CR>\end{align*}<Up>
+:au FileType tex nnoremap ;bl i\begin{lemma}<CR><CR>\end{lemma}<Up>
+:au FileType tex nnoremap ;bc i\begin{corollary}<CR><CR>\end{corollary}<Up>
+:au FileType tex nnoremap ;bp i\begin{proposition}<CR><CR>\end{proposition}<Up>
+:au FileType tex nnoremap ;bt i\begin{theorem}<CR><CR>\end{theorem}<Up>
+:au FileType tex nnoremap ;pr i\begin{proof}<CR><CR>\end{proof}<Up>
+:au FileType tex nnoremap ;bj i\begin{conjecture}<CR><CR>\end{conjecture}<Up>
+:au FileType tex nnoremap ;bd i\begin{definition}<CR><CR>\end{definition}<Up>
+:au FileType tex nnoremap ;bx i\begin{example}<CR><CR>\end{example}<Up>
+:au FileType tex nnoremap ;bq i\begin{quote}<CR><CR>\end{quote}<Up>
+:au FileType tex nnoremap ;bL i\begin{lstlisting}<CR><CR>\end{lstlisting}<Up>
+:au FileType tex nnoremap ;se i<CR>\section{}<CR><Up><Esc>wwa
+:au FileType tex nnoremap ;ss i<CR>\subsection{}<CR><Up><Esc>wwa
+:au FileType tex nnoremap ;s3 i<CR>\subsubsection{}<CR><Up><Esc>wwa
+:au FileType tex nnoremap ;m <Esc>o<Esc>o<Tab>$$$$<Left><Left>
+:au FileType tex inoremap <C-f> \frac{}{}<Left><Left><Left>
+:au FileType tex inoremap <C-b> \mathbb{}<Left>
+
+:au FileType tex inoremap " ``"<Left>
+:au FileType tex inoremap ; \
+:au FileType tex inoremap \ ;
+
+:au FileType plaintex map <leader><leader> <Esc>0jjo
+
+:au FileType plaintex map <leader>x<CR> :! xelatex %<CR><CR>
+:au FileType plaintex map <leader><CR> :! pdflatex %<CR><CR>
+:au FileType plaintex map O :! zathura $(echo % \| sed 's/tex$/pdf/') & disown<CR><CR> 
+
+:au FileType plaintex nnoremap ;be i\begin{enumerate}<CR><CR>\end{enumerate}<Up>\item<Space>
+:au FileType plaintex nnoremap ;bi i\begin{itemize}<CR><CR>\end{itemlize}<Up>\item<Space>
+:au FileType plaintex nnoremap ;bD i\begin{description}<CR><CR>\end{description}<Up>\item<Space>[]<Esc>i
+:au FileType plaintex nnoremap ;ba i\begin{align*}<CR><CR>\end{align*}<Up>
+:au FileType plaintex nnoremap ;bl i\begin{lemma}<CR><CR>\end{lemma}<Up>
+:au FileType plaintex nnoremap ;bc i\begin{corollary}<CR><CR>\end{corollary}<Up>
+:au FileType plaintex nnoremap ;bp i\begin{proposition}<CR><CR>\end{proposition}<Up>
+:au FileType plaintex nnoremap ;bt i\begin{theorem}<CR><CR>\end{theorem}<Up>
+:au FileType plaintex nnoremap ;pr i\begin{proof}<CR><CR>\end{proof}<Up>
+:au FileType plaintex nnoremap ;bj i\begin{conjecture}<CR><CR>\end{conjecture}<Up>
+:au FileType plaintex nnoremap ;bd i\begin{definition}<CR><CR>\end{definition}<Up>
+:au FileType plaintex nnoremap ;bx i\begin{example}<CR><CR>\end{example}<Up>
+:au FileType plaintex nnoremap ;bq i\begin{quote}<CR><CR>\end{quote}<Up>
+:au FileType plaintex nnoremap ;bL i\begin{lstlisting}<CR><CR>\end{lstlisting}<Up>
+:au FileType plaintex nnoremap ;se i<CR>\section{}<CR><Up><Esc>wwa
+:au FileType plaintex nnoremap ;ss i<CR>\subsection{}<CR><Up><Esc>wwa
+:au FileType plaintex nnoremap ;s3 i<CR>\subsubsection{}<CR><Up><Esc>wwa
+:au FileType plaintex nnoremap ;m <Esc>o<Esc>o<Tab>$$$$<Left><Left>
+:au FileType plaintex inoremap <C-f> \frac{}{}<Left><Left><Left>
+:au FileType plaintex inoremap <C-b> \mathbb{}<Left>
+
+:au FileType plaintex inoremap " ``"<Left>
+:au FileType plaintex inoremap ; \
+:au FileType plaintex inoremap \ ;
+
+:au FileType html nnoremap ;p i<p><CR><CR></p><Up>
+:au FileType html nnoremap ;c i<code></code><Left>
+:au FileType html nnoremap ;h1 i<h1></h1><Left><Left><Left><Left><Left>
+:au FileType html nnoremap ;h2 i<h2></h2><Left><Left><Left><Left><Left>
+:au FileType html nnoremap ;h3 i<h3></h3><Left><Left><Left><Left><Left>
+:au FileType html nnoremap ;h4 i<h4></h4><Left><Left><Left><Left><Left>
+:au FileType html nnoremap ;h5 i<h5></h5><Left><Left><Left><Left><Left>
+:au FileType html nnoremap ;b i<b></b><Left><Left><Left><Left><Left><Left><Left>
+:au FileType html nnoremap ;i i<em></em><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
+:au FileType html nnoremap ;a i<a href=></a><Left><Left><Left><Left><Left>
+:au FileType html nnoremap ;r i<br/><Esc>
+
+:au FileType html inoremap < <><Left>
+
+":au FileType c map <leader><CR> :! make $(echo % \| sed 's/.*$//') %<CR><CR>
+
+:au FileType python inoremap <C-j> <End><Backspace>:<CR>
+:au FileType python inoremap " ""<Left>
+:au FileType c inoremap " ""<Left>
+:au FileType R inoremap " ""<Left>
+:au FileType javascript inoremap " ""<Left>
+
