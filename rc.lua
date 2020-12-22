@@ -126,10 +126,6 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 -- Mocp widget
 mocpwidget = awful.widget.watch({ "bash", "-c", "mocp -i | grep Title | sed -n 1p | cut -f 2- -d ' '" }, 2)
 
--- Bat widget
---batwidget = wibox.widget.textbox()
---vicious.register(batwidget, vicious.widgets.bat, " $2% Bat   |  ", 61, "BAT0")
-
 -- CPU widget
 cpuwidget = wibox.widget.textbox()
 vicious.cache(vicious.widgets.cpu)
@@ -252,7 +248,6 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.layout.fixed.horizontal,
             --mykeyboardlayout,
             --wibox.widget.systray(),
-	    batwidget;
 	    cpuwidget,
 	    memwidget,
 	    ipwidget,
@@ -591,18 +586,6 @@ for i = 1, 9 do
 	  function () awful.util.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle") end
 
   	),
-
-	-----Brightness controls
-	---awful.key(
-	---  {}, 
-	---  "XF86MonBrightnessDown", 
-	---  function () awful.util.spawn("brightness -dec 1") end
-        ---),
-    	---awful.key(
-	---  {}, 
-	---  "XF86MonBrightnessUp", 
-	---  function () awful.util.spawn("brightness -inc 1") end
-	---),
 
         -- View tag only.
         awful.key({ modkey }, "#" .. i + 9,
