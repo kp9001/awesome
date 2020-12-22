@@ -148,7 +148,7 @@ diskwidget = wibox.widget.textbox()
 vicious.register(diskwidget, vicious.widgets.fs, " ${/ used_gb} gb / ${/ size_gb} gb   |  ")
 
 -- Weather widget
-weatherwidget = awful.widget.watch({ "bash", "-c", "weather | grep °F | sed -n 1p | sed 's/m.............$//' | sed 's/^.*m//' | sed 's/...$//'" }, 1999)
+weatherwidget = awful.widget.watch({ "bash", "-c", "curl -s wttr.in | grep °F | sed -n 1p | sed 's/m.............$//' | sed 's/^.*m//' | sed 's/...$//'" }, 1999)
 
 -- Date widget
 datewidget = wibox.widget.textbox()

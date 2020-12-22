@@ -99,7 +99,7 @@ cd awesome
 This configuration has some additional dependencies, namely
 
 ```
-sudo apt install feh xcompgr unclutter
+sudo apt install feh xcompgr unclutter curl
 ```
 
 At minimum, you will probably want a wallpaper, so run
@@ -115,21 +115,21 @@ To set a wallpaper, simply move an image into the directory `~/pictures/wallpape
 In order to take full advantage of the custom configuration (for instance, screenshots), you will need to install a few more dependencies:
 
 ```
-sudo apt install maim xclip xdotool xterm curl ffmpeg 
+sudo apt install maim xclip xdotool xterm ffmpeg 
 ```
 
 You can now move scripts as you wish from the `scripts` directory to `/usr/bin` in order to take advantage of extra features. For everything, you can run
 
 ```
 cd scripts
-sudo cp record recorder weather mailsync /usr/bin
+sudo cp record recorder mailsync /usr/bin
 ```
 
 In order to use the keybindings for screen/webcam recording, open `scripts/recorder` in a text editor. First, change the `RES` variable to the resolution of your monitor. Next, you will want to change the entries for the variables `AUDIO` and `MIC` to match your system. To do this, use `pactl list sources` and identify which sources you wish to use for audio and microphone. The name of the audio source (computer speakers, headphones, etc.) should be used in place of `alsa_output...`, and the name of the microphone source should be used in place of `alsa_input...`. 
 
-The `weather` script simply runs `curl -s wttr.in`, which the weather widget uses to show you the current temperature in your location. 
-
 Finally, `mailsync` will automtaically sync your email in the background, if you are using mutt and mbsync. If not, you should remove the lines with `mailsync` from your autostart list. 
+
+# Notes
 
 Other things you might want to modify before loading: 
 
