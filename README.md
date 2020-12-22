@@ -74,7 +74,7 @@ These tools assume you have a playlist saved in the program mocp. You can instal
 
 - `super+control+print` -- launch terminal with interactive prompts to being screen/webcam recordings
 
-Screenshots will by default be saved in `~/pictures/.screenshots` and recordings will be saved in `~/videos/.recordings`. These directories will be created if they do not exist. In order to take advantage of these features, please read the relevant details in the installation section!
+Screenshots will by default be saved in `~/pictures/.screenshots` and recordings will be saved in `~/videos/.recordings`. These directories will be created if they do not exist. In order to take advantage of these features, please read the relevant details in the add ons section!
 
 ### Volume
 
