@@ -147,6 +147,9 @@ ipwidget = awful.widget.watch({ "bash", "-c", "ifconfig | grep enp2s0 -A 1 | sed
 diskwidget = wibox.widget.textbox()
 vicious.register(diskwidget, vicious.widgets.fs, " ${/ used_gb} gb / ${/ size_gb} gb   |  ")
 
+-- Weather widget
+weatherwidget = awful.widget.watch({ "bash", "-c", "weather | grep °F | sed -n 1p | sed 's/m.............$//' | sed 's/^.*m//' | sed 's/...$//'" }, 1999)
+
 -- Date widget
 datewidget = wibox.widget.textbox()
 vicious.register(datewidget, vicious.widgets.date, " %A  -  %Y-%m-%d  -  %H:%M:%S  (%Z)  ", 1)
@@ -254,6 +257,8 @@ awful.screen.connect_for_each_screen(function(s)
 	    wibox.widget.textbox('   |   '),
 	    netwidget,
 	    diskwidget,
+	    weatherwidget,
+	    wibox.widget.textbox(' °F   |  '),
 	    datewidget,
             s.mylayoutbox,
         },

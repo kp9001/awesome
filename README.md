@@ -96,22 +96,39 @@ git clone https://github.com/kp9001/awesome.git
 cd awesome
 ```
 
-In order to take full advantage of the custom configuration (for instance, screenshots), you will need to make sure a few dependencies are installed:
+This configuration has some additional dependencies, namely
 
 ```
-sudo apt install feh maim xclip xdotool xcompmgr xterm ffmpeg unclutter moc moc-ffmpeg-plugin
+sudo apt install feh xcompgr unclutter
+```
+
+At minimum, you will probably want a wallpaper, so run
+
+```
+cd scripts
+sudo cp fehbg /usr/bin
+```
+
+To set a wallpaper, simply move an image into the directory `~/pictures/wallpapers`. If you wish, you may put multiple wallpapers in to the `~/pictures/wallpapers` directory. If you do this, then each time you restart awesome, a random one will be selected. To change to a new random wallpaper, use `super+ctrl+b`.
+
+## Add ons
+
+In order to take full advantage of the custom configuration (for instance, screenshots), you will need to install a few more dependencies:
+
+```
+sudo apt install maim xclip xdotool xterm curl ffmpeg 
 ```
 
 You can now move scripts as you wish from the `scripts` directory to `/usr/bin` in order to take advantage of extra features. For everything, you can run
 
 ```
 cd scripts
-sudo cp fehbg record recorder mailsync /usr/bin
+sudo cp record recorder weather mailsync /usr/bin
 ```
 
-To set a wallpaper, simply move an image into the directory `~/pictures/wallpapers`. If you wish, you may put multiple wallpapers in to the `~/pictures/wallpapers` directory. If you do this, then each time you restart awesome, a random one will be selected. To change to a new random wallpaper, use `super+ctrl+b`.
-
 In order to use the keybindings for screen/webcam recording, open `scripts/recorder` in a text editor. First, change the `RES` variable to the resolution of your monitor. Next, you will want to change the entries for the variables `AUDIO` and `MIC` to match your system. To do this, use `pactl list sources` and identify which sources you wish to use for audio and microphone. The name of the audio source (computer speakers, headphones, etc.) should be used in place of `alsa_output...`, and the name of the microphone source should be used in place of `alsa_input...`. 
+
+The `weather` script simply runs `curl -s wttr.in`, which the weather widget uses to show you the current temperature in your location. 
 
 Finally, `mailsync` will automtaically sync your email in the background, if you are using mutt and mbsync. If not, you should remove the lines with `mailsync` from your autostart list. 
 
