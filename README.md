@@ -105,8 +105,7 @@ sudo apt install feh xcompgr unclutter
 At minimum, you will probably want a wallpaper, so run
 
 ```
-cd scripts
-sudo cp fehbg /usr/bin
+sudo cp scripts/fehbg /usr/bin
 ```
 
 To set a wallpaper, simply move an image into the directory `~/pictures/wallpapers`. If you wish, you may put multiple wallpapers in to the `~/pictures/wallpapers` directory. If you do this, then each time you restart awesome, a random one will be selected. To change to a new random wallpaper, use `super+ctrl+b`.
