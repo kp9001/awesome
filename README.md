@@ -82,10 +82,12 @@ Volume up/down keys perform their normal function. This can be changed to any ke
 
 ## Installation
 
-Awesome can be installed from your linux repository 
+Awesome can be installed from your linux repository on debian, arch, and fedora based distros. 
 
 ```
 sudo apt install awesome
+sudo pacman -S awesome
+sudo dnf install awesome
 ```
 
 or it can be built following instructions on the original awesome git repository [here](https://github.com/awesomeWM/awesome). To copy this confuguration, clone the git repository into your `.config`
