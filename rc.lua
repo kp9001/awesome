@@ -152,7 +152,7 @@ weatherwidget = awful.widget.watch({ "bash", "-c", "curl -s wttr.in | grep °F |
 
 -- Date widget
 datewidget = wibox.widget.textbox()
-vicious.register(datewidget, vicious.widgets.date, " %A  -  %Y-%m-%d  -  %H:%M:%S  (%Z)  ", 1)
+vicious.register(datewidget, vicious.widgets.date, " %A  -  %Y-%m-%d  -  %H:%M:%S  (%Z)   |  ", 1)
 
 
 -- Create a wibox for each screen and add it
@@ -251,15 +251,15 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.layout.fixed.horizontal,
             --mykeyboardlayout,
             --wibox.widget.systray(),
-	    cpuwidget,
-	    memwidget,
+	    netwidget,
 	    ipwidget,
 	    wibox.widget.textbox('   |   '),
-	    netwidget,
+	    cpuwidget,
+	    memwidget,
 	    diskwidget,
-	    weatherwidget,
-	    wibox.widget.textbox(' °F   |  '),
 	    datewidget,
+	    weatherwidget,
+	    wibox.widget.textbox(' °F  '),
             s.mylayoutbox,
         },
     }
