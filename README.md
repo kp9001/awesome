@@ -133,7 +133,7 @@ Please note the following before copying:
 
 For `recorder`, you will need to manually input the values for the variables `RES`, `AUDIO` and `MIC`. These should respectively be the resolution of your monitor, the audio output source, and the audio input source. To find the names of the latter two, assuming you are using pulseaudio, you can run `pactl list sources`. You are interested in the `Name` entries.
 
-For `weather`, you may wish to edit according to the note in the file. If not, it will default to the weather in your current IP location. Due to admittedly bad design, the temperature unit is hardcoded into the widget. Search for `Right widgets` in `rc.lua` and you will see where you can modify this. 
+For `weather`, you may wish to edit according to the note in the file. If not, it will default to the weather in your current IP location. 
 
 Finally, `mailsync` will automtaically sync your email in the background, if you are using mutt and mbsync. If not, you should remove the lines with `mailsync` from your autostart list. 
 
@@ -144,7 +144,6 @@ Other things you might want to modify before loading:
 - You may wish to remove from, add to, or modify the autorun section at the end of `rc.lua`. 
 - The keybinds for `move_to_screen` are based on my monitor setup. The default binding is commented out beneath my modified bindings. 
 - The widgets, especially the network ones, are set up specifically for my system. You may wish to modify some arguments so they work for you. Search for `Wibar` in `rc.lua`. For instance, you will want to change all instances of `enp2s0` to your network connection, perhaps `eth0` or `wlan0`. 
-- In order for the weather widget to work, you must copy the `weather` script to `/usr/bin`, or else change it in `rc.lua`, replacing the command `weather` with `curl -s wttr.in`.
 
 If all went well, awesome should now load with this configuration without errors, and with your wallpaper. If you wish to make any changes, open up `rc.lua` in your favorite editor and have fun. Press `super+ctrl+r` to reload awesome (unless you modified this already). 
 
