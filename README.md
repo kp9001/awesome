@@ -112,6 +112,8 @@ sudo cp scripts/fehbg /usr/bin
 
 To set a wallpaper, simply move an image into the directory `~/pictures/wallpapers`. If you wish, you may put multiple wallpapers in to the `~/pictures/wallpapers` directory. If you do this, then each time you restart awesome, a random one will be selected. To change to a new random wallpaper, use `super+ctrl+b`.
 
+Please refer to the Notes section at the end for important additional notes.  
+
 ## Add ons
 
 In order to take full advantage of the custom configuration (for instance, screenshots), you will need to install a few more dependencies:
@@ -131,11 +133,11 @@ Please note the following before copying:
 
 For `recorder`, you will need to manually input the values for the variables `RES`, `AUDIO` and `MIC`. These should respectively be the resolution of your monitor, the audio output source, and the audio input source. To find the names of the latter two, assuming you are using pulseaudio, you can run `pactl list sources`. You are interested in the `Name` entries.
 
-For `weather`, you may wish to edit according to the note in the file. If not, it will default to the weather in your current IP location. 
+For `weather`, you may wish to edit according to the note in the file. If not, it will default to the weather in your current IP location. Due to admittedly bad design, the temperature unit is hardcoded into the widget. Search for `Right widgets` in `rc.lua` and you will see where you can modify this. 
 
 Finally, `mailsync` will automtaically sync your email in the background, if you are using mutt and mbsync. If not, you should remove the lines with `mailsync` from your autostart list. 
 
-# Notes
+## Notes
 
 Other things you might want to modify before loading: 
 
