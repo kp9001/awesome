@@ -2,9 +2,9 @@
 OPTIONS=""
 OUTPUT=${2?Give output file name}
 
-RES="1920x1080"
-AUDIO=$"alsa_output.usb-DeSheng_Electronics_Inc._XIBERIA-00.analog-stereo.monitor"
-MIC=$"alsa_input.usb-DeSheng_Electronics_Inc._XIBERIA-00.mono-fallback"
+RES=""
+AUDIO=$""
+MIC=$""
 
 case $1 in
 	"--audio")

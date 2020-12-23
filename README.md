@@ -124,10 +124,14 @@ You can now move scripts as you wish from the `scripts` directory to `/usr/bin` 
 
 ```
 cd scripts
-sudo cp record recorder mailsync /usr/bin
+sudo cp record recorder mailsync weather /usr/bin
 ```
 
-In order to use the keybindings for screen/webcam recording, open `scripts/recorder` in a text editor. First, change the `RES` variable to the resolution of your monitor. Next, you will want to change the entries for the variables `AUDIO` and `MIC` to match your system. To do this, use `pactl list sources` and identify which sources you wish to use for audio and microphone. The name of the audio source (computer speakers, headphones, etc.) should be used in place of `alsa_output...`, and the name of the microphone source should be used in place of `alsa_input...`. 
+Please note the following before copying:
+
+For `recorder`, you will need to manually input the values for the variables `RES`, `AUDIO` and `MIC`. These should respectively be the resolution of your monitor, the audio output source, and the audio input source. To find the names of the latter two, assuming you are using pulseaudio, you can run `pactl list sources`. You are interested in the `Name` entries.
+
+For `weather`, you may wish to edit according to the note in the file. If not, it will default to the weather in your current IP location. 
 
 Finally, `mailsync` will automtaically sync your email in the background, if you are using mutt and mbsync. If not, you should remove the lines with `mailsync` from your autostart list. 
 
@@ -138,6 +142,7 @@ Other things you might want to modify before loading:
 - You may wish to remove from, add to, or modify the autorun section at the end of `rc.lua`. 
 - The keybinds for `move_to_screen` are based on my monitor setup. The default binding is commented out beneath my modified bindings. 
 - The widgets, especially the network ones, are set up specifically for my system. You may wish to modify some arguments so they work for you. Search for `Wibar` in `rc.lua`. For instance, you will want to change all instances of `enp2s0` to your network connection, perhaps `eth0` or `wlan0`. 
+- In order for the weather widget to work, you must copy the `weather` script to `/usr/bin`, or else change it in `rc.lua`, replacing the command `weather` with `curl -s wttr.in`.
 
 If all went well, awesome should now load with this configuration without errors, and with your wallpaper. If you wish to make any changes, open up `rc.lua` in your favorite editor and have fun. Press `super+ctrl+r` to reload awesome (unless you modified this already). 
 

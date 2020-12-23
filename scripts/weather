@@ -1,2 +1,5 @@
 #!/bin/bash
+## use format wttr.in/Your_Location
+## or wttr.in/Your_Location?m for metric, etc
+## see https://github.com/chubin/wttr.in for more
 curl -s wttr.in
