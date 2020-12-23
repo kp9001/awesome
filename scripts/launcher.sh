@@ -23,6 +23,9 @@ case $1 in
 	"--keepass")
 		options+="keepass"
 		;;
+	"--weather")
+		options+="weather"
+		;;
 	"--python")
 		options+="python"
 		;;
@@ -47,6 +50,7 @@ esac
 [ $options = "mirage" ] && mirage
 [ $options = "jitsi" ] && jitsi
 [ $options = "keepass" ] && keepassxc
+[ $options = "weather" ] && xterm -hold -e weather
 [ $options = "python" ] && xterm -e python3 -q
 [ $options = "r" ] && xterm -e R -q
 [ $options = "record" ] && xterm -e record

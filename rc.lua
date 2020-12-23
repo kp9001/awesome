@@ -307,6 +307,10 @@ globalkeys = gears.table.join(
     	function () 
 	    awful.util.spawn(gears.filesystem.get_configuration_dir() .. "scripts/launcher.sh --keepass", false) 
     	end, { description = "Launch KeePassXC", group = "launcher" }),
+    awful.key({ modkey, "Control" }, "f", 
+    	function () 
+	    awful.util.spawn(gears.filesystem.get_configuration_dir() .. "scripts/launcher.sh --weather", false) 
+    	end, { description = "Show weather", group = "weather" }),
     awful.key({ modkey, "Control" }, "p", 
     	function () 
 	    awful.util.spawn(gears.filesystem.get_configuration_dir() .. "scripts/launcher.sh --python", false) 
@@ -718,6 +722,9 @@ awful.rules.rules = {
 
     { rule = { name = "music && ranger" },
 	properties = { x = 500, y = 100, width = 800, height = 800 } },
+
+    { rule = { name = "weather" },
+	properties = { x = 390, y = 100, width = 1140, height = 660 } },
 
 -- {{{ Signals
 -- Signal function to execute when a new client appears.
