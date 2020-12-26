@@ -101,7 +101,7 @@ cd awesome
 This configuration has some additional dependencies, namely
 
 ```
-sudo apt install feh xcompgr unclutter curl
+sudo apt install feh xcompmgr unclutter curl
 ```
 
 At minimum, you will probably want a wallpaper, so run
