@@ -107,7 +107,7 @@ sudo apt install feh xcompmgr unclutter curl
 At minimum, you will probably want a wallpaper, so run
 
 ```
-sudo cp scripts/fehbg /usr/bin
+sudo cp scripts/fehbg /usr/local/bin
 ```
 
 To set a wallpaper, simply move an image into the directory `~/pictures/wallpapers`. If you wish, you may put multiple wallpapers in to the `~/pictures/wallpapers` directory. If you do this, then each time you restart awesome, a random one will be selected. To change to a new random wallpaper, use `super+ctrl+b`.
@@ -122,11 +122,11 @@ In order to take full advantage of the custom configuration (for instance, scree
 sudo apt install maim xclip xdotool xterm ffmpeg 
 ```
 
-You can now move scripts as you wish from the `scripts` directory to `/usr/bin` in order to take advantage of extra features. For everything, you can run
+You can now move scripts as you wish from the `scripts` directory to `/usr/local/bin` in order to take advantage of extra features. For everything, you can run
 
 ```
 cd scripts
-sudo cp record recorder mailsync weather /usr/bin
+sudo cp record recorder mailsync weather /usr/local/bin
 ```
 
 Please note the following before copying:
