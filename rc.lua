@@ -710,10 +710,6 @@ awful.rules.rules = {
       }, properties = { titlebars_enabled = false }
     },
 
-    -- VLC always opens on screen 1 (right), tag 1
-    { rule = { class = "vlc" },
-    	properties = { screen = 2, tag = "1" } },
-
     { rule = { class = "wine" },
     	properties = { screen = 1, tag = "1", maximized = true } },
 
@@ -814,12 +810,12 @@ end)
 autorun = true
 autorunApps = 
 {
-	"fehbg",
 	"xcompmgr",
 	"mocp -S",
 	"pkill mailsync", 
 	"mailsync",
-	"unclutter -idle 1 -jitter 50"
+	"unclutter -idle 1 -jitter 50",
+	"fehbg"
 }
 
 if autorun then
