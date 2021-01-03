@@ -792,6 +792,7 @@ client.connect_signal("focus", function(c)
                         c.border_color = beautiful.border_focus
 			if c.class ~= "vlc" 
 				and c.class ~="Wine"
+				and c.class ~="feh"
 				--and c.maximized 
 				--and c.fullscreen 
 				then c.opacity = 0.95
@@ -801,6 +802,7 @@ client.connect_signal("unfocus", function(c)
                         c.border_color = beautiful.border_normal
 			if c.class ~= "vlc"
 				and c.class ~="Wine"
+				and c.class ~="feh"
 			 	then c.opacity = 0.85
 			end
 end)

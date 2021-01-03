@@ -141,9 +141,17 @@ nnoremap _' bi'<Esc>ea'<Esc>
 
 :au FileType html inoremap < <><Left>
 
+:au FileType rust nnoremap ;p o/<Esc>0f/v<End><Left>cprintln!("");<Left><Left><Left>
+:au FileType rust nnoremap ;f o<CR>pub<Space>fn<Space>run()<Space>{<CR><CR>}<Up><Tab>
+
+:au FileType rust inoremap <C-n> <Esc>f"a, 
+:au FileType rust inoremap <C-w> <End><CR><Esc>0f/xs
+:au FileType rust inoremap <C-f> <Space>{<CR><CR>}<Up><Tab><Tab>
+
 ":au FileType c map <leader><CR> :! make $(echo % \| sed 's/.*$//') %<CR><CR>
 
 :au FileType python inoremap " ""<Left>
+:au FileType rust inoremap " ""<Left>
 :au FileType c inoremap " ""<Left>
 :au FileType R inoremap " ""<Left>
 :au FileType javascript inoremap " ""<Left>
