@@ -16,10 +16,6 @@ local vicious = require("vicious")
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 
--- Load Debian menu entries
-local debian = require("debian.menu")
-local has_fdo, freedesktop = pcall(require, "freedesktop")
-
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -81,38 +77,6 @@ awful.layout.layouts = {
     --awful.layout.suit.corner.se,
 }
 -- }}}
-
--- {{{ Menu
--- Create a launcher widget and a main menu
-myawesomemenu = {
-   { "hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
-   { "manual", terminal .. " -e man awesome" },
-   { "edit config", editor_cmd .. " " .. awesome.conffile },
-   { "restart", awesome.restart },
-   { "quit", function() awesome.quit() end },
-}
-
-local menu_awesome = { "awesome", myawesomemenu, beautiful.awesome_icon }
-local menu_terminal = { "open terminal", terminal }
-
-if has_fdo then
-    mymainmenu = freedesktop.menu.build({
-        before = { menu_awesome },
-        after =  { menu_terminal }
-    })
-else
-    mymainmenu = awful.menu({
-        items = {
-                  menu_awesome,
-                  { "Debian", debian.menu.Debian_menu.Debian },
-                  menu_terminal,
-                }
-    })
-end
-
-
-mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
-                                     menu = mymainmenu })
 
 -- Menubar configuration
 menubar.utils.terminal = terminal -- Set the terminal for applications that require it
@@ -266,13 +230,6 @@ awful.screen.connect_for_each_screen(function(s)
 end)
 -- }}}
 
--- {{{ Mouse bindings
--- The only mouse binding that is conceivable useful and not annoying; the others were purged without regret
-root.buttons(gears.table.join(
-    awful.button({ }, 3, function () mymainmenu:toggle() end)
-))
--- }}}
-
 -- {{{ Key bindings
 globalkeys = gears.table.join(
 
@@ -417,8 +374,6 @@ globalkeys = gears.table.join(
         end,
         {description = "focus previous by index", group = "client"}
     ),
-    awful.key({ modkey }, "w", function () mymainmenu:show() end,
-              {description = "show main menu", group = "awesome"}),
 
     -- Moving clients around
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end,
@@ -793,6 +748,7 @@ client.connect_signal("focus", function(c)
 			if c.class ~= "vlc" 
 				and c.class ~="Wine"
 				and c.class ~="feh"
+				and c.class ~="VirtualBox Machine"
 				--and c.maximized 
 				--and c.fullscreen 
 				then c.opacity = 0.95
@@ -803,6 +759,7 @@ client.connect_signal("unfocus", function(c)
 			if c.class ~= "vlc"
 				and c.class ~="Wine"
 				and c.class ~="feh"
+				and c.class ~="VirtualBox Machine"
 			 	then c.opacity = 0.85
 			end
 end)
@@ -813,6 +770,7 @@ autorun = true
 autorunApps = 
 {
 	"xcompmgr",
+	"pactl set-default-sink alsa_output.pci-0000_00_14.2.analog-stereo",
 	"mocp -S",
 	"pkill mailsync", 
 	"mailsync",
