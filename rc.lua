@@ -105,19 +105,18 @@ netwidget = wibox.widget.textbox()
 vicious.register(netwidget, vicious.widgets.net, " ${enp2s0 up_kb} kb ↑  ${enp2s0 down_kb} kb ↓   |  ", 1)
 
 ---- Internal IP widget
-ipwidget = awful.widget.watch({ "bash", "-c", "ifconfig | grep enp2s0 -A 1 | sed -n 2p | awk '{print $2}'" }, 53)
+ipwidget = awful.widget.watch({ "bash", "-c", "ifconfig | grep enp2s0 -A 1 | sed -n 2p | cut -d ' ' -f 10" }, 53)
 
 -- Disk space widget
 diskwidget = wibox.widget.textbox()
 vicious.register(diskwidget, vicious.widgets.fs, " ${/ used_gb} gb / ${/ size_gb} gb   |  ")
 
--- Weather widget
---weatherwidget = awful.widget.watch({ "bash", "-c", "weather | grep °C | sed -n 1p | sed 's/m.............$//' | sed 's/^.*m//' | sed 's/...$//'" }, 1999)
-
 -- Date widget
 datewidget = wibox.widget.textbox()
 vicious.register(datewidget, vicious.widgets.date, " %A  -  %Y-%m-%d  -  %H:%M:%S  (%Z)   |  ", 1)
 
+-- Weather widget
+-- weatherwidget = awful.widget.watch({ "bash", "-c", "weather | grep °C | sed -n 1p | cut -d ' ' -f 10,11" }, 1999)
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -223,7 +222,6 @@ awful.screen.connect_for_each_screen(function(s)
 	    diskwidget,
 	    datewidget,
 	    --weatherwidget,
-	    --wibox.widget.textbox(' °C  '),
             s.mylayoutbox,
         },
     }
