@@ -1,6 +1,6 @@
 # Awesome WM
 
-My personal configuration of the awesome window manager. The original can be found [here](https://github.com/awesomeWM/awesome). I have a slightly different configuration which I use for my laptop [here](https://github.com/kp9001/awesome). Comments added to rc.lua should roughly explain changes to the default configuration. 
+My personal configuration of the awesome window manager. The original can be found [here](https://github.com/awesomeWM/awesome). Comments added to rc.lua should roughly explain changes to the default configuration. 
 
 ![Chat screenshot](images/screenshot.png)
 
