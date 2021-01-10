@@ -5,12 +5,8 @@ IMAGE=$DIR"/"$TIME".png"
 OPTIONS=""
 
 case $1 in
-	"--select")
-		OPTIONS+="-s"
-		;;
-	"--active")
-		OPTIONS+="-i $(xdotool getactivewindow)"
-		;;
+	"--select") OPTIONS+="-s" ;;
+	"--active") OPTIONS+="-i $(xdotool getactivewindow)" ;;
 esac
 
 [ ! -d $DIR ] && mkdir -p $DIR

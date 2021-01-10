@@ -1,5 +1,8 @@
 #!/bin/bash
-OPTIONS=""
+
+# must modify AUDIO and MIC variables for different hardware!
+# can use " -f alsa -i default " or " -f alsa -i pulse " for single audio, probably mic
+
 OUTPUT=${2?Give output file name}
 
 RES=""
@@ -7,53 +10,16 @@ AUDIO=$""
 MIC=$""
 
 case $1 in
-	"--audio")
-		OPTIONS+="A"
-		;;
-	"--mic")
-		OPTIONS+="M"
-		;;
-	"--audio-mic")
-		OPTIONS+="AM"
-		;;
-	"--screen")
-		OPTIONS+="screen"
-		;;
-	"--screen-mic")
-		OPTIONS+="screenM"
-		;;
-	"--screen-audio")
-		OPTIONS+="screenA"
-		;;
-	"--screen-audio-mic")
-		OPTIONS+="screenAM"
-		;;
-	"--webcam")
-		OPTIONS+="webcam"
-		;;
-	"--webcam-mic")
-		OPTIONS+="webcamM"
-		;;
-	"--webcam-audio")
-		OPTIONS+="webcamM"
-		;;
-	"--webcam-audio-mic")
-		OPTIONS+="webcamM"
-		;;
+	"--audio") ffmpeg -f pulse -i $AUDIO $OUTPUT ;;
+	"--mic") ffmpeg -f pulse -i $MIC $OUTPUT ;;
+	"--audio-mic") ffmpeg -f pulse -i $AUDIO -f pulse -i $MIC -filter_complex amix=inputs=2 $OUTPUT ;;
+	"--screen") ffmpeg -f x11grab -s $RES -i :0.0 $OUTPUT  ;;
+	"--screen-mic") ffmpeg -f x11grab -s $RES -i :0.0 -f pulse -i $MIC $OUTPUT ;;
+	"--screen-audio") ffmpeg -f x11grab -s $RES -i :0.0 -f pulse -i $AUDIO $OUTPUT ;;
+	"--screen-audio-mic") ffmpeg -f x11grab -s $RES -i :0.0 -f pulse -i $AUDIO -f pulse -i $MIC -filter_complex amix=inputs=2 $OUTPUT ;;
+	"--webcam") ffmpeg -i /dev/video0 $OUTPUT ;;
+	"--webcam-mic") ffmpeg -i /dev/video0 -f pulse -i $MIC $OUTPUT ;;
+	"--webcam-audio") ffmpeg -i /dev/video0 -f pulse -i $AUDIO $OUTPUT ;;
+	"--webcam-audio-mic") ffmpeg -i /dev/video0 -f pulse -i $AUDIO -f pulse -i $MIC -filter_complex amix=inputs=2 $OUTPUT ;;
 esac
-
-# must modify AUDIO and MIC variables for different hardware!
-# can use " -f alsa -i default " or " -f alsa -i pulse " for single audio, probably mic
-
-[ $OPTIONS = "A" ] && ffmpeg -f pulse -i $AUDIO $OUTPUT
-[ $OPTIONS = "M" ] && ffmpeg -f pulse -i $MIC $OUTPUT
-[ $OPTIONS = "AM" ] && ffmpeg -f pulse -i $AUDIO -f pulse -i $MIC -filter_complex amix=inputs=2 $OUTPUT
-[ $OPTIONS = "screen" ] && ffmpeg -f x11grab -s $RES -i :0.0 $OUTPUT 
-[ $OPTIONS = "screenM" ] && ffmpeg -f x11grab -s $RES -i :0.0 -f pulse -i $MIC $OUTPUT
-[ $OPTIONS = "screenA" ] && ffmpeg -f x11grab -s $RES -i :0.0 -f pulse -i $AUDIO $OUTPUT
-[ $OPTIONS = "screenAM" ] && ffmpeg -f x11grab -s $RES -i :0.0 -f pulse -i $AUDIO -f pulse -i $MIC -filter_complex amix=inputs=2 $OUTPUT
-[ $OPTIONS = "webcam" ] && ffmpeg -i /dev/video0 $OUTPUT
-[ $OPTIONS = "webcamM" ] && ffmpeg -i /dev/video0 -f pulse -i $MIC $OUTPUT
-[ $OPTIONS = "webcamA" ] && ffmpeg -i /dev/video0 -f pulse -i $AUDIO $OUTPUT
-[ $OPTIONS = "webcamAM" ] && ffmpeg -i /dev/video0 -f pulse -i $AUDIO -f pulse -i $MIC -filter_complex amix=inputs=2 $OUTPUT
 
