@@ -96,37 +96,6 @@ nnoremap _' bi'<Esc>ea'<Esc>
 :au FileType tex inoremap ; \
 :au FileType tex inoremap \ ;
 
-:au FileType plaintex map <leader><leader> <Esc>0jjo
-
-:au FileType plaintex map <leader>x<CR> :! xelatex %<CR><CR>
-:au FileType plaintex map <leader><CR> :! pdflatex %<CR><CR>
-:au FileType plaintex map O :! zathura $(echo % \| sed 's/tex$/pdf/') & disown<CR><CR> 
-
-:au FileType plaintex nnoremap ;be i\begin{enumerate}<CR><CR>\end{enumerate}<Up>\item<Space>
-:au FileType plaintex nnoremap ;bi i\begin{itemize}<CR><CR>\end{itemlize}<Up>\item<Space>
-:au FileType plaintex nnoremap ;bD i\begin{description}<CR><CR>\end{description}<Up>\item<Space>[]<Esc>i
-:au FileType plaintex nnoremap ;ba i\begin{align*}<CR><CR>\end{align*}<Up>
-:au FileType plaintex nnoremap ;bl i\begin{lemma}<CR><CR>\end{lemma}<Up>
-:au FileType plaintex nnoremap ;bc i\begin{corollary}<CR><CR>\end{corollary}<Up>
-:au FileType plaintex nnoremap ;bp i\begin{proposition}<CR><CR>\end{proposition}<Up>
-:au FileType plaintex nnoremap ;bt i\begin{theorem}<CR><CR>\end{theorem}<Up>
-:au FileType plaintex nnoremap ;pr i\begin{proof}<CR><CR>\end{proof}<Up>
-:au FileType plaintex nnoremap ;bj i\begin{conjecture}<CR><CR>\end{conjecture}<Up>
-:au FileType plaintex nnoremap ;bd i\begin{definition}<CR><CR>\end{definition}<Up>
-:au FileType plaintex nnoremap ;bx i\begin{example}<CR><CR>\end{example}<Up>
-:au FileType plaintex nnoremap ;bq i\begin{quote}<CR><CR>\end{quote}<Up>
-:au FileType plaintex nnoremap ;bL i\begin{lstlisting}<CR><CR>\end{lstlisting}<Up>
-:au FileType plaintex nnoremap ;se i<CR>\section{}<CR><Up><Esc>wwa
-:au FileType plaintex nnoremap ;ss i<CR>\subsection{}<CR><Up><Esc>wwa
-:au FileType plaintex nnoremap ;s3 i<CR>\subsubsection{}<CR><Up><Esc>wwa
-:au FileType plaintex nnoremap ;m <Esc>o<Esc>o<Tab>$$$$<Left><Left>
-:au FileType plaintex inoremap <C-f> \frac{}{}<Left><Left><Left>
-:au FileType plaintex inoremap <C-b> \mathbb{}<Left>
-
-:au FileType plaintex inoremap " ``"<Left>
-:au FileType plaintex inoremap ; \
-:au FileType plaintex inoremap \ ;
-
 :au FileType html nnoremap ;p i<p><CR><CR></p><Up>
 :au FileType html nnoremap ;c i<code></code><Left>
 :au FileType html nnoremap ;h1 i<h1></h1><Left><Left><Left><Left><Left>
@@ -148,11 +117,10 @@ nnoremap _' bi'<Esc>ea'<Esc>
 :au FileType rust inoremap <C-w> <End><CR><Esc>0f/xs
 :au FileType rust inoremap <C-f> <Space>{<CR><CR>}<Up><Tab><Tab>
 
-":au FileType c map <leader><CR> :! make $(echo % \| sed 's/.*$//') %<CR><CR>
+":au FileType c map <leader><CR> :! make $(echo % \| sed 's/.c$//') %<CR><CR>
 
 :au FileType python inoremap " ""<Left>
 :au FileType rust inoremap " ""<Left>
 :au FileType c inoremap " ""<Left>
 :au FileType R inoremap " ""<Left>
 :au FileType javascript inoremap " ""<Left>
-
