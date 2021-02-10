@@ -747,6 +747,10 @@ client.connect_signal("focus", function(c)
 				and c.class ~="Wine"
 				and c.class ~="feh"
 				and c.class ~="VirtualBox Machine"
+				and c.class ~="Steam"
+				and c.class ~="steam_app_238960"
+				and c.class ~="Chromium-browser"
+				and c.class ~="cityofheroes.exe"
 				--and c.maximized 
 				--and c.fullscreen 
 				then c.opacity = 0.95
@@ -758,6 +762,10 @@ client.connect_signal("unfocus", function(c)
 				and c.class ~="Wine"
 				and c.class ~="feh"
 				and c.class ~="VirtualBox Machine"
+				and c.class ~="Steam"
+				and c.class ~="steam_app_238960"
+				and c.class ~="Chromium-browser"
+				and c.class ~="cityofheroes.exe"
 			 	then c.opacity = 0.85
 			end
 end)
