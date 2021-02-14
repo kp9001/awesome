@@ -484,8 +484,8 @@ clientkeys = gears.table.join(
               {description = "move to screen 2 (right)", group = "client"}),
     awful.key({ modkey, "Shift" }, "h",      function (c) c:move_to_screen(1) end,
               {description = "move to screen 1 (left)", group = "client"}),
-    --awful.key({ modkey }, "o",      function (c) c:move_to_screen() end,
-    --          {description = "move to other screen", group = "client"}),
+    awful.key({ modkey, "Shift" }, "i",      function (c) c:move_to_screen(3) end,
+              {description = "move to vertical screen", group = "client"}),
 
     -- For when you really need to see something
     awful.key({ modkey }, "t",      function (c) c.ontop = not c.ontop end,
@@ -775,6 +775,7 @@ end)
 autorun = true
 autorunApps = 
 {
+	"xrandr --output HDMI-A-0 --primary --mode 1920x1080 --rate 60 --output DisplayPort-1 --mode 1920x1080 --rate 60 --right-of HDMI-A-0 --output DisplayPort-0 --mode 1920x1080 --rate 60 --rotate left --left-of HDMI-A-0",
 	"xcompmgr",
 	"pactl set-default-sink alsa_output.pci-0000_00_14.2.analog-stereo",
 	"mocp -S",
