@@ -1,5 +1,5 @@
 #!/bin/bash
 DIR=$HOME/pictures/wallpapers
+IMAGE=$( find $DIR | shuf -n 1 )
 
-feh --bg-scale $( find $DIR | shuf -n 1 )
-
+feh --bg-scale $IMAGE --bg-scale $IMAGE --bg-scale $DIR/blank.png 
