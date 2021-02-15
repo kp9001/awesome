@@ -480,11 +480,11 @@ clientkeys = gears.table.join(
 
     -- Move client to another screen (monitor)
     -- If your screens are more intelligently numbered than mine, you will probably want to swap these
-    awful.key({ modkey, "Shift" }, "l",      function (c) c:move_to_screen(2) end,
-              {description = "move to screen 2 (right)", group = "client"}),
+    awful.key({ modkey, "Shift" }, "l",      function (c) c:move_to_screen(3) end,
+              {description = "move to right screen", group = "client"}),
     awful.key({ modkey, "Shift" }, "h",      function (c) c:move_to_screen(1) end,
-              {description = "move to screen 1 (left)", group = "client"}),
-    awful.key({ modkey, "Shift" }, "i",      function (c) c:move_to_screen(3) end,
+              {description = "move to left screen", group = "client"}),
+    awful.key({ modkey, "Shift" }, "i",      function (c) c:move_to_screen(2) end,
               {description = "move to vertical screen", group = "client"}),
 
     -- For when you really need to see something

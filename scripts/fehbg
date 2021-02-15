@@ -2,4 +2,4 @@
 DIR=$HOME/pictures/wallpapers
 IMAGE=$( find $DIR | shuf -n 1 )
 
-feh --bg-scale $IMAGE --bg-scale $IMAGE --bg-scale $DIR/blank.png 
+feh --bg-scale $IMAGE --bg-scale $DIR/blank.png --bg-scale $IMAGE
