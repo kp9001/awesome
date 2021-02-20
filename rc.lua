@@ -340,6 +340,12 @@ globalkeys = gears.table.join(
             awful.util.spawn(gears.filesystem.get_configuration_dir() .. "scripts/fehbg", false)
         end, { description = "Change to random wallpaper", group = "Wallpaper" }),
 
+	-- Fix monitors
+    awful.key({ modkey, "Control" }, "n", nil,
+        function()
+            awful.util.spawn(gears.filesystem.get_configuration_dir() .. "scripts/monitors", false)
+        end, { description = "Fix monitors", group = "Monitors" }),
+	
 	--Because minimalism
     awful.key({ modkey }, "b",
               function ()
@@ -656,7 +662,7 @@ awful.rules.rules = {
           "ConfigManager",  -- Thunderbird's about:config.
           "pop-up",       -- e.g. Google Chrome's (detached) Developer Tools.
         }
-      }, properties = { floating = true, x = 700, y = 300 } },
+      }, properties = { floating = true, x = 1580, y = 300 } },
 
     -- Add titlebars to normal clients and dialogs
     { rule_any = {type = { "normal", "dialog" }
@@ -670,10 +676,10 @@ awful.rules.rules = {
 	properties = { maximized = false, floating = false } },
 
     { rule = { name = "music && ranger" },
-	properties = { x = 500, y = 100, width = 800, height = 800 } },
+	properties = { x = 1580, y = 100, width = 800, height = 800 } },
 
     { rule = { name = "weather" },
-	properties = { x = 390, y = 100, width = 1140, height = 660 } },
+	properties = { x = 1470, y = 100, width = 1140, height = 660 } },
 
 -- {{{ Signals
 -- Signal function to execute when a new client appears.
@@ -775,7 +781,8 @@ end)
 autorun = true
 autorunApps = 
 {
-	"xrandr --output HDMI-A-0 --primary --mode 1920x1080 --rate 60 --output DisplayPort-1 --mode 1920x1080 --rate 60 --right-of HDMI-A-0 --output DisplayPort-0 --mode 1920x1080 --rate 60 --rotate left --left-of HDMI-A-0",
+	--"xrandr --output HDMI-A-0 --primary --mode 1920x1080 --rate 60 --output DisplayPort-1 --mode 1920x1080 --rate 60 --right-of HDMI-A-0 --output DisplayPort-0 --mode 1920x1080 --rate 60 --rotate normal --left-of HDMI-A-0",
+	--"xrandr --output HDMI-A-0 --primary --mode 1920x1080 --rate 60 --output DisplayPort-1 --mode 1920x1080 --rate 60 --right-of HDMI-A-0 --output DisplayPort-0 --mode 1920x1080 --rate 60 --rotate left --left-of HDMI-A-0",
 	"xcompmgr",
 	"pactl set-default-sink alsa_output.pci-0000_00_14.2.analog-stereo",
 	"mocp -S",
